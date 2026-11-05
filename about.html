@@ -1,0 +1,1060 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Endocrinology & Diabetes Care Clinic</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7', // Medical Blue
+                        secondary: '#0369a1',
+                        accent: '#38bdf8',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for mobile menu */
+        .mobile-menu-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .mobile-menu-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Mobile Overlay -->
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[998] hidden transition-opacity"></div>
+
+    <!-- ==================== HEADER & NAVBAR ==================== -->
+    <header class="sticky top-0 z-[1000] bg-white dark:bg-darkCard shadow-md transition-colors duration-300">
+        <nav class="max-w-[1400px] mx-auto flex justify-between items-center px-6 py-4 min-h-[80px]">
+
+            <!-- Clinic Logo -->
+            <a href="index.html" class="flex items-center gap-2 text-decoration-none">
+                <i class="fas fa-heartbeat text-3xl text-primary bg-clip-text bg-gradient-to-br from-primary to-secondary"></i>
+                <span class="font-serif text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-tight">EndoClinic</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden xl:flex items-center gap-2 m-0 p-0 list-none">
+                <!-- Home Dropdown -->
+                <li class="relative group">
+                    <a href="#" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all flex items-center gap-1 dark:hover:bg-primary/20">
+                        Home <i class="fas fa-caret-down text-sm"></i>
+                    </a>
+                    <ul class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-darkCard shadow-xl border border-gray-100 dark:border-gray-700 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <li><a href="index.html" class="block px-5 py-2 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">Home 1</a></li>
+                        <li><a href="home2.html" class="block px-5 py-2 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">Home 2</a></li>
+                    </ul>
+                </li>
+
+                <!-- Standard Links -->
+                <li><a href="about.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">About</a></li>
+                <li><a href="service.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Service</a></li>
+                <li><a href="careplan.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Care Plans</a></li>
+                <li><a href="booking.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Booking</a></li>
+                <li><a href="faq.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Faq</a></li>
+                <li><a href="contact.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Contact</a></li>
+
+                <!-- Dashboard Dropdown -->
+                <li class="relative group">
+                    <a href="#" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all flex items-center gap-1 dark:hover:bg-primary/20">
+                        Dashboard <i class="fas fa-caret-down text-sm"></i>
+                    </a>
+                    <ul class="absolute top-full left-0 mt-2 w-52 bg-white dark:bg-darkCard shadow-xl border border-gray-100 dark:border-gray-700 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <li><a href="user.html" class="block px-5 py-2 hover:bg-primary hover:text-white transition-colors">User Dashboard</a></li>
+                        <li><a href="admin.html" class="block px-5 py-2 hover:bg-primary hover:text-white transition-colors">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <!-- Auth Buttons -->
+                <li class="ml-4"><a href="login.html" class="px-6 py-2 rounded-full font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all">Login</a></li>
+
+                <!-- Theme & RTL Controls -->
+                <li class="flex items-center gap-2 ml-2 border-l border-gray-200 dark:border-gray-700 pl-4">
+                    <button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Toggle Theme">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="rtlToggle" class="px-3 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-bold text-sm" title="Toggle RTL">RTL</button>
+                </li>
+            </ul>
+
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger" class="xl:hidden w-10 h-10 border-2 border-gray-200 dark:border-gray-700 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-primary hover:border-primary transition-colors">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ==================== MOBILE NAV MENU (HAMBURGER) ==================== -->
+    <div id="mobileNavMenu" class="fixed top-0 -right-full w-[320px] h-screen bg-gray-50 dark:bg-darkCard z-[999] transition-all duration-400 border-l-[3px] border-primary pt-[90px] px-6 pb-8 overflow-y-auto mobile-menu-scroll rtl:border-l-0 rtl:border-r-[3px] rtl:-left-full rtl:right-auto shadow-2xl">
+        <ul class="flex flex-col gap-3 list-none p-0 m-0">
+            <!-- Mobile Links -->
+            <li><div class="px-5 py-3 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Home</div></li>
+            <li><a href="index.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Home 1</a></li>
+            <li><a href="home2.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Home 2</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Pages</div></li>
+            <li><a href="about.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">About</a></li>
+            <li><a href="service.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Service</a></li>
+            <li><a href="careplan.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Care Plans</a></li>
+            <li><a href="booking.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Booking</a></li>
+            <li><a href="faq.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Faq</a></li>
+            <li><a href="contact.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Contact</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Dashboard</div></li>
+            <li><a href="user.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">User Dashboard</a></li>
+            <li><a href="admin.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Admin Dashboard</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Account</div></li>
+            <li><a href="login.html" class="block px-5 py-3 text-center rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-colors">Login</a></li>
+        </ul>
+
+        <div class="mt-8 flex flex-col gap-4">
+            <button id="mobileThemeToggle" class="w-full flex items-center justify-center gap-3 border-2 border-gray-200 dark:border-gray-700 rounded-full py-3 bg-white dark:bg-darkBg hover:bg-primary hover:text-white hover:border-primary transition-colors font-medium">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                <span class="dark:hidden">Dark Mode</span>
+                <span class="hidden dark:block">Light Mode</span>
+            </button>
+            <button id="mobileRtlToggle" class="w-full flex items-center justify-center gap-3 border-2 border-gray-200 dark:border-gray-700 rounded-full py-3 bg-white dark:bg-darkBg hover:bg-primary hover:text-white hover:border-primary transition-colors font-medium">
+                <span>RTL</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== HERO BANNER (Modified for About Page) ==================== -->
+    <section class="relative h-[60vh] min-h-[400px] flex items-center overflow-hidden">
+        <!-- Background Image (Changed for About Page) -->
+        <img src="images/diabeties (7).jpg" alt="Hospital Building" class="absolute inset-0 w-full h-full object-cover z-0">
+
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-transparent z-10 rtl:bg-gradient-to-l"></div>
+
+        <div class="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between">
+            <!-- Text Content (Changed for About Page) -->
+            <div class="w-full lg:w-3/5 text-white">
+                <p class="text-primary font-semibold text-lg md:text-xl mb-3 tracking-wide uppercase">Who We Are</p>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    About <span class="text-primary">EndoClinic</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl max-w-lg mb-8">
+                    Discover our history, our dedicated medical team, and our commitment to advancing metabolic and endocrine care in our community.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="flex-grow">
+        
+        <!-- 1. CLINIC MISSION -->
+        <section id="mission" class="py-20 bg-white dark:bg-darkBg">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-primary font-bold uppercase tracking-wider mb-2">Our Mission</h2>
+                        <h3 class="font-serif text-3xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">Empowering Patients Through Endocrine Health</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-lg leading-relaxed">
+                            At EndoClinic, our mission is to provide comprehensive, compassionate, and cutting-edge care for individuals navigating hormonal imbalances, diabetes, and metabolic disorders. We believe in treating the whole person, not just the symptoms.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mt-8">
+                            <div class="border-l-4 border-primary pl-4">
+                                <h4 class="font-bold text-2xl text-gray-900 dark:text-white mb-1">15+</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Years of Clinical Excellence</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-4">
+                                <h4 class="font-bold text-2xl text-gray-900 dark:text-white mb-1">10k+</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Patients Treated Successfully</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 relative">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="images/diabeties (18).jpg" alt="Doctor consulting patient" class="w-full h-auto object-cover">
+                            <div class="absolute inset-0 bg-primary/10"></div>
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 bg-white dark:bg-darkCard p-6 rounded-2xl shadow-xl hidden md:block border border-gray-100 dark:border-gray-800">
+                            <div class="flex items-center gap-4">
+                                <i class="fas fa-award text-4xl text-primary"></i>
+                                <div>
+                                    <p class="font-bold text-gray-900 dark:text-white">Top Rated Clinic</p>
+                                    <p class="text-xs text-gray-500">Board Certified Specialists</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. OUR CORE VALUES -->
+        <section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+                <h2 class="text-primary font-bold uppercase tracking-wider mb-2">What Drives Us</h2>
+                <h3 class="font-serif text-3xl md:text-5xl font-bold mb-12 text-gray-900 dark:text-white">Our Core Values</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-darkCard p-10 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fas fa-hand-holding-medical"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Patient-Centric Care</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            We listen intently and tailor every treatment plan to the individual's unique lifestyle, medical history, and personal health goals.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-darkCard p-10 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Evidence-Based Medicine</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            Our protocols are strictly guided by the latest scientific research, ensuring our patients receive the most advanced and effective therapies available.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-darkCard p-10 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Collaborative Approach</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            We work closely with primary care physicians, dietitians, and educators to create a unified support system for holistic patient wellness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. OUR CARE APPROACH & PATIENT JOURNEY -->
+        <section id="approach" class="py-20 bg-white dark:bg-darkBg">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-primary font-bold uppercase tracking-wider mb-2">Our Methodology</h2>
+                    <h3 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">A Systematic, Personalized Care Journey</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">
+                        Endocrine health requires precision, patience, and partnership. We guide you through four evidence-based stages to restore balance and vitality.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-all duration-300 relative group">
+                        <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                            01
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Comprehensive Hormonal Mapping</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                            We evaluate complete clinical history, genetic predispositions, lifestyle factors, and prior metabolic tests to uncover root causes.
+                        </p>
+                        <div class="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
+                            <i class="fas fa-dna"></i> Genomic & Lifestyle Review
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-all duration-300 relative group">
+                        <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                            02
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Precision Biomarker Profiling</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                            Utilizing rapid in-office assays, high-res thyroid ultrasound, CGM telemetry, and metabolic analysis to confirm accurate diagnosis.
+                        </p>
+                        <div class="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
+                            <i class="fas fa-microscope"></i> Advanced Diagnostic Testing
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-all duration-300 relative group">
+                        <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                            03
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Custom Treatment & Nutrition</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                            Your physician designs a tailored regimen &mdash; from hormone therapy and smart insulin tech to customized clinical nutrition plans.
+                        </p>
+                        <div class="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
+                            <i class="fas fa-utensils"></i> Targeted Clinical Regimens
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:-translate-y-2 transition-all duration-300 relative group">
+                        <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                            04
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">24/7 Monitoring & Support</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                            Connected via our Patient Portal with automated CGM sync, rapid refills, quarterly consultations, and ongoing wellness optimization.
+                        </p>
+                        <div class="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
+                            <i class="fas fa-mobile-screen"></i> Continuous Digital Care
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MEET OUR MEDICAL SPECIALISTS -->
+        <section id="team" class="py-20 bg-gray-50 dark:bg-gray-900/50">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-primary font-bold uppercase tracking-wider mb-2">Clinical Leadership</h2>
+                    <h3 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Meet Our Specialist Care Team</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">
+                        Our multidisciplinary team brings decades of fellowship-trained experience across clinical endocrinology, advanced diabetes technology, and metabolic nutrition.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Specialist 1 -->
+                    <div class="bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+                        <div class="relative overflow-hidden h-72">
+                            <img src="images/about3.jpg" alt="Dr. Sarah Jenkins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                Lead Specialist
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Dr. Sarah Jenkins, MD, FACE</h4>
+                            <p class="text-primary text-sm font-semibold mb-2">Founder & Lead Endocrinologist</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Johns Hopkins Fellowship | 18+ Yrs Exp</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
+                                Renowned expert in autoimmune thyroid disorders, Hashimoto's disease, and fine-needle aspiration of complex thyroid nodules.
+                            </p>
+                            <div class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                                <span class="text-xs font-medium text-gray-500 dark:text-gray-400"><i class="fas fa-circle-check text-green-500 mr-1"></i> Board Certified</span>
+                                <a href="booking.html" class="text-primary hover:text-secondary font-bold text-sm inline-flex items-center gap-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
+                                    Book <i class="fas fa-chevron-right text-xs rtl:rotate-180"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specialist 2 -->
+                    <div class="bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+                        <div class="relative overflow-hidden h-72">
+                            <img src="images/about4.jpg" alt="Dr. Marcus Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                Tech & Diabetes
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Dr. Marcus Chen, MD, PhD</h4>
+                            <p class="text-primary text-sm font-semibold mb-2">Director of Diabetes Technology</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Harvard Medical School | 14+ Yrs Exp</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
+                                Specializing in Type 1 diabetes care, automated insulin delivery loops, sensor integration, and hypoglycemia unawareness therapy.
+                            </p>
+                            <div class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                                <span class="text-xs font-medium text-gray-500 dark:text-gray-400"><i class="fas fa-circle-check text-green-500 mr-1"></i> Board Certified</span>
+                                <a href="booking.html" class="text-primary hover:text-secondary font-bold text-sm inline-flex items-center gap-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
+                                    Book <i class="fas fa-chevron-right text-xs rtl:rotate-180"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specialist 3 -->
+                    <div class="bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+                        <div class="relative overflow-hidden h-72">
+                            <img src="images/diabeties (6).jpg" alt="Dr. Elena Patel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                Hormonal Health
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Dr. Elena Patel, MD</h4>
+                            <p class="text-primary text-sm font-semibold mb-2">Metabolic & Reproductive Specialist</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Stanford University | 11+ Yrs Exp</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
+                                Dedicated to managing PCOS, hormonal weight challenges, adrenal disorders, and osteoporosis prevention in adult and senior patients.
+                            </p>
+                            <div class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                                <span class="text-xs font-medium text-gray-500 dark:text-gray-400"><i class="fas fa-circle-check text-green-500 mr-1"></i> Board Certified</span>
+                                <a href="booking.html" class="text-primary hover:text-secondary font-bold text-sm inline-flex items-center gap-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
+                                    Book <i class="fas fa-chevron-right text-xs rtl:rotate-180"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specialist 4 -->
+                    <div class="bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+                        <div class="relative overflow-hidden h-72">
+                            <img src="images/about5.jpg" alt="Rachel Adams, MS, RD, CDCES" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                Diabetes Education
+                            </span>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Rachel Adams, MS, RD, CDCES</h4>
+                            <p class="text-primary text-sm font-semibold mb-2">Head Clinical Dietitian & Educator</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Columbia University | 9+ Yrs Exp</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
+                                Guiding patients through medical nutrition therapy, glycemic index optimization, insulin dose titration, and gestational diabetes care.
+                            </p>
+                            <div class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                                <span class="text-xs font-medium text-gray-500 dark:text-gray-400"><i class="fas fa-circle-check text-green-500 mr-1"></i> CDCES Certified</span>
+                                <a href="booking.html" class="text-primary hover:text-secondary font-bold text-sm inline-flex items-center gap-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
+                                    Book <i class="fas fa-chevron-right text-xs rtl:rotate-180"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ADVANCED DIAGNOSTIC TECHNOLOGY & FACILITIES -->
+        <section id="facilities" class="py-20 bg-white dark:bg-darkBg">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <h2 class="text-primary font-bold uppercase tracking-wider mb-2">Modern Clinical Infrastructure</h2>
+                        <h3 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white">State-of-the-Art Diagnostic Facilities</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg max-w-md">
+                        Equipped with hospital-grade, point-of-care technology to deliver rapid answers and same-day therapeutic adjustments.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tech 1 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/40 transition-all duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
+                            <i class="fas fa-tower-broadcast"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white">CGM Sensor Clinic</h4>
+                            <span class="text-[11px] font-bold uppercase tracking-wider bg-blue-100 text-primary dark:bg-primary/20 px-2.5 py-1 rounded-full">Real-time</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                            Seamless placement, calibration, and cloud telemetry analysis for Dexcom G7, Abbott FreeStyle Libre 3, and Medtronic Guardian sensors.
+                        </p>
+                        <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Zero fingerstick continuous tracking</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Automated alerts for hyper/hypoglycemia</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech 2 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/40 transition-all duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white">Thyroid Ultrasound & FNA</h4>
+                            <span class="text-[11px] font-bold uppercase tracking-wider bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-2.5 py-1 rounded-full">Same-Day</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                            High-frequency color Doppler imaging for accurate thyroid nodule stratification (TI-RADS) with minimally invasive in-office needle biopsy.
+                        </p>
+                        <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Painless ultrasound-guided precision</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Molecular testing on thyroid nodule cells</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech 3 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/40 transition-all duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
+                            <i class="fas fa-vial-circle-check"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white">Point-of-Care Rapid Lab</h4>
+                            <span class="text-[11px] font-bold uppercase tracking-wider bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 px-2.5 py-1 rounded-full">15-Min Results</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                            CLIA-certified on-site lab delivering fast HbA1c, microalbuminuria, lipid panels, and rapid fingerstick blood ketone measurements.
+                        </p>
+                        <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Discuss test results during the appointment</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Immediate prescription dose adjustments</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech 4 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/40 transition-all duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white">Bone Density & Metabolic DEXA</h4>
+                            <span class="text-[11px] font-bold uppercase tracking-wider bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 px-2.5 py-1 rounded-full">Advanced</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                            Gold-standard dual-energy X-ray absorptiometry for early osteoporosis detection, fracture risk calculation, and visceral fat tracking.
+                        </p>
+                        <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Precise T-score & Z-score diagnostics</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Skeletal muscle & lean mass quantification</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech 5 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/40 transition-all duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
+                            <i class="fas fa-socks"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white">Diabetic Foot Care Suite</h4>
+                            <span class="text-[11px] font-bold uppercase tracking-wider bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400 px-2.5 py-1 rounded-full">Preventative</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                            Early peripheral neuropathy assessment utilizing calibrated Semmes-Weinstein monofilaments and Doppler arterial circulation checks.
+                        </p>
+                        <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Preventative ulcer & neuropathy screening</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Custom therapeutic diabetic footwear guidance</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech 6 -->
+                    <div class="bg-gray-50 dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:border-primary/40 transition-all duration-300">
+                        <div class="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-3xl mb-6">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xl font-bold text-gray-900 dark:text-white">Insulin Pump & Infusion Suite</h4>
+                            <span class="text-[11px] font-bold uppercase tracking-wider bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400 px-2.5 py-1 rounded-full">Dedicated</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                            Comfortable private treatment bays for intravenous osteoporosis therapy, biologics, and hands-on smart insulin pump initiation.
+                        </p>
+                        <ul class="text-xs text-gray-500 dark:text-gray-400 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Omnipod, Tandem & Medtronic training</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-primary"></i> Relaxing environment with registered nurses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CLINIC HISTORY/TIMELINE -->
+        <section id="history" class="py-20 bg-gray-50 dark:bg-darkCard/40 transition-colors duration-300 border-t border-gray-100 dark:border-gray-800">
+            <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase bg-primary/10 text-primary dark:bg-primary/20 mb-3">
+                        Milestones & Heritage
+                    </span>
+                    <h2 class="text-primary font-bold uppercase tracking-wider mb-2 text-sm">Our Journey</h2>
+                    <h3 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">A Legacy of Endocrine Care</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg">
+                        Over nearly two decades, EndoClinic has evolved from a dedicated local practice into an accredited regional center for metabolic health and continuous endocrine technology.
+                    </p>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Central Vertical Timeline Line -->
+                    <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-primary/30 -translate-x-1/2 rtl:right-6 rtl:left-auto md:rtl:right-1/2 md:rtl:left-auto"></div>
+
+                    <div class="space-y-12 relative z-10">
+                        <!-- Milestone 1: 2008 (Left on Desktop) -->
+                        <div class="relative flex flex-col md:flex-row items-center">
+                            <!-- Left Content -->
+                            <div class="w-full md:w-1/2 pl-16 md:pl-0 md:pr-12 md:text-right rtl:pl-0 rtl:pr-16 md:rtl:pr-0 md:rtl:pl-12 md:rtl:text-left">
+                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary/20 text-xs font-bold uppercase tracking-wider mb-3">
+                                        <i class="fas fa-calendar-star"></i> 2008
+                                    </div>
+                                    <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Clinic Foundation</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
+                                        Founded by Dr. Sarah Jenkins with a singular vision to provide specialized, accessible diabetes care and aggressive preventative management to the local community.
+                                    </p>
+                                    <span class="text-xs font-semibold text-primary">Initial 500 Patients Reached</span>
+                                </div>
+                            </div>
+                            <!-- Center Node / Circle Indicator -->
+                            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary text-white border-4 border-white dark:border-darkBg shadow-md flex items-center justify-center text-sm font-bold rtl:right-6 rtl:left-auto md:rtl:right-1/2 md:rtl:left-auto rtl:translate-x-1/2 md:rtl:translate-x-1/2">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <!-- Spacer for Right Side -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                        </div>
+
+                        <!-- Milestone 2: 2015 (Right on Desktop) -->
+                        <div class="relative flex flex-col md:flex-row items-center">
+                            <!-- Spacer for Left Side -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                            <!-- Center Node / Circle Indicator -->
+                            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-secondary text-white border-4 border-white dark:border-darkBg shadow-md flex items-center justify-center text-sm font-bold rtl:right-6 rtl:left-auto md:rtl:right-1/2 md:rtl:left-auto rtl:translate-x-1/2 md:rtl:translate-x-1/2">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <!-- Right Content -->
+                            <div class="w-full md:w-1/2 pl-16 md:pl-12 rtl:pl-0 rtl:pr-16 md:rtl:pr-12 md:rtl:pl-0">
+                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary/10 text-secondary dark:bg-secondary/20 text-xs font-bold uppercase tracking-wider mb-3">
+                                        <i class="fas fa-calendar-star"></i> 2015
+                                    </div>
+                                    <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Expansion to Full Endocrinology</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
+                                        Expanded services to include comprehensive thyroid care, pituitary disorders, and osteoporosis management, welcoming three new board-certified specialists.
+                                    </p>
+                                    <span class="text-xs font-semibold text-secondary">Multidisciplinary Specialty Board</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Milestone 3: 2022 (Left on Desktop) -->
+                        <div class="relative flex flex-col md:flex-row items-center">
+                            <!-- Left Content -->
+                            <div class="w-full md:w-1/2 pl-16 md:pl-0 md:pr-12 md:text-right rtl:pl-0 rtl:pr-16 md:rtl:pr-0 md:rtl:pl-12 md:rtl:text-left">
+                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary/20 text-xs font-bold uppercase tracking-wider mb-3">
+                                        <i class="fas fa-calendar-star"></i> 2022
+                                    </div>
+                                    <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Launch of Patient Portal & CGM Sync</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
+                                        Introduced our proprietary digital dashboard, allowing patients to seamlessly track blood sugar, manage medications, and consult virtually with instant physician feedback.
+                                    </p>
+                                    <span class="text-xs font-semibold text-primary">Over 10,000 CGM Sensors Synced</span>
+                                </div>
+                            </div>
+                            <!-- Center Node / Circle Indicator -->
+                            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-accent text-white border-4 border-white dark:border-darkBg shadow-md flex items-center justify-center text-sm font-bold rtl:right-6 rtl:left-auto md:rtl:right-1/2 md:rtl:left-auto rtl:translate-x-1/2 md:rtl:translate-x-1/2">
+                                <i class="fas fa-laptop-medical"></i>
+                            </div>
+                            <!-- Spacer for Right Side -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                        </div>
+
+                        <!-- Milestone 4: 2026 (Right on Desktop) -->
+                        <div class="relative flex flex-col md:flex-row items-center">
+                            <!-- Spacer for Left Side -->
+                            <div class="hidden md:block md:w-1/2"></div>
+                            <!-- Center Node / Circle Indicator -->
+                            <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 text-white border-4 border-white dark:border-darkBg shadow-md flex items-center justify-center text-sm font-bold rtl:right-6 rtl:left-auto md:rtl:right-1/2 md:rtl:left-auto rtl:translate-x-1/2 md:rtl:translate-x-1/2">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <!-- Right Content -->
+                            <div class="w-full md:w-1/2 pl-16 md:pl-12 rtl:pl-0 rtl:pr-16 md:rtl:pr-12 md:rtl:pl-0">
+                                <div class="bg-white dark:bg-darkCard p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
+                                        <i class="fas fa-star"></i> Today & Beyond (2026)
+                                    </div>
+                                    <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Center of Clinical Excellence</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
+                                        Accredited center for precision metabolic therapy, automated insulin delivery loops, cellular hormone optimization, and personalized metabolic medicine.
+                                    </p>
+                                    <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">15,000+ Active Patients Managed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CLINICAL RESEARCH & COMMUNITY OUTREACH -->
+        <section id="research" class="py-20 bg-white dark:bg-darkBg">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Left: Clinical Image & Impact Highlights -->
+                    <div class="w-full lg:w-1/2 relative">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-100 dark:border-gray-800">
+                            <img src="images/diabeties (10).jpg" alt="Clinical Research Laboratory" class="w-full h-auto object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6 text-white">
+                                <span class="bg-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 inline-block">Active Research Center</span>
+                                <h4 class="text-xl font-bold">Investigating Tomorrow's Endocrine Solutions</h4>
+                                <p class="text-xs text-gray-200 mt-1">Advancing new treatments through ADA-registered clinical trials.</p>
+                            </div>
+                        </div>
+
+                        <!-- Mini Floating Badge -->
+                        <div class="absolute -top-6 -right-6 bg-white dark:bg-darkCard p-5 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 hidden sm:block">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-xl">
+                                    <i class="fas fa-flask-vial"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xl font-bold text-gray-900 dark:text-white">25+ Trials</p>
+                                    <p class="text-xs text-gray-500">Completed & Ongoing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Narrative & Key Initiatives -->
+                    <div class="w-full lg:w-1/2">
+                        <h2 class="text-primary font-bold uppercase tracking-wider mb-2">Scientific Advancement</h2>
+                        <h3 class="font-serif text-3xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">Bridging Groundbreaking Research & Compassionate Care</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                            At EndoClinic, clinical excellence is intertwined with scientific inquiry. Our doctors serve as primary investigators in clinical trials studying novel peptide therapeutics, dual GLP-1/GIP receptor co-agonists, and closed-loop automated insulin delivery systems.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-xl shrink-0 mt-1">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Novel Diabetes Therapeutics</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Evaluating weekly basal insulins and cardio-renal protective metabolic therapies to prevent long-term diabetic complications.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-xl shrink-0 mt-1">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Free Community Health Workshops</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Hosting monthly patient seminars on carbohydrate budgeting, gestational diabetes, and living well with Hashimoto's thyroiditis.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-xl shrink-0 mt-1">
+                                    <i class="fas fa-book-medical"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Published Academic Contributions</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Our physicians regularly author articles for the <em>Journal of Clinical Endocrinology & Metabolism</em> and present at annual ADA sessions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. PATIENT SUCCESS STORIES & CLINICAL OUTCOMES -->
+        <section id="outcomes" class="py-20 bg-gray-50 dark:bg-gray-900/50">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-primary font-bold uppercase tracking-wider mb-2">Proven Results</h2>
+                    <h3 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Real Stories, Life-Changing Outcomes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">
+                        Hear how our personalized diagnostic protocols and supportive clinicians have transformed the health and daily vitality of our patients.
+                    </p>
+                </div>
+
+                <!-- Clinical Impact Metric Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-100 dark:border-gray-800 text-center shadow-sm">
+                        <div class="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">-2.3%</div>
+                        <p class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 tracking-wider">Avg. HbA1c Drop in 6 Months</p>
+                    </div>
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-100 dark:border-gray-800 text-center shadow-sm">
+                        <div class="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">98.4%</div>
+                        <p class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 tracking-wider">Patient Satisfaction Score</p>
+                    </div>
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-100 dark:border-gray-800 text-center shadow-sm">
+                        <div class="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">8,400+</div>
+                        <p class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 tracking-wider">CGM Sensors Placed & Synced</p>
+                    </div>
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-100 dark:border-gray-800 text-center shadow-sm">
+                        <div class="font-serif text-3xl md:text-4xl font-bold text-primary mb-1">4.9 / 5</div>
+                        <p class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 tracking-wider">Over 1,200 Verified Reviews</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Story 1 -->
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 italic">
+                                "After 7 years of uncontrolled Type 2 diabetes and frustration with generic advice, Dr. Chen introduced me to a continuous glucose monitor and tailored my medication. My A1C plummeted from 9.2% to 6.3% in five months. I feel like myself again!"
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary">
+                                DM
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 dark:text-white text-sm">David Miller</h5>
+                                <p class="text-xs text-primary font-medium">Type 2 Diabetes Patient &bull; 2 Years with EndoClinic</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story 2 -->
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 italic">
+                                "I spent years dealing with extreme fatigue, unexplained weight gain, and brain fog that was repeatedly dismissed. Dr. Jenkins ran extensive thyroid antibody panels, diagnosed Hashimoto's, and adjusted my T3/T4 balance. The difference has been night and day."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary">
+                                ST
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 dark:text-white text-sm">Sarah Thorne</h5>
+                                <p class="text-xs text-primary font-medium">Hashimoto's Thyroiditis Care &bull; 18 Months</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story 3 -->
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 italic">
+                                "Managing PCOS was overwhelming until I met Dr. Patel and clinical dietitian Rachel. They created an integrative nutritional plan paired with insulin-sensitizing therapy that normalized my cycles and helped me lose 28 lbs sustainably."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary">
+                                AK
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 dark:text-white text-sm">Amira Khalil</h5>
+                                <p class="text-xs text-primary font-medium">PCOS & Metabolic Health &bull; 1 Year</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. CERTIFICATIONS & AFFILIATIONS -->
+        <section id="certifications" class="py-20 bg-white dark:bg-darkBg">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+                <h2 class="text-primary font-bold uppercase tracking-wider mb-2">Excellence Recognized</h2>
+                <h3 class="font-serif text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Our Certifications</h3>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">We maintain the highest standards of medical care, continually verified by leading national health organizations and endocrinology boards.</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                    <!-- Cert 1 -->
+                    <div class="flex flex-col items-center justify-center gap-3 p-4">
+                        <i class="fas fa-certificate text-5xl text-gray-400 dark:text-gray-500"></i>
+                        <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest text-center">Board of<br>Endocrinology</span>
+                    </div>
+                    <!-- Cert 2 -->
+                    <div class="flex flex-col items-center justify-center gap-3 p-4">
+                        <i class="fas fa-shield-halved text-5xl text-gray-400 dark:text-gray-500"></i>
+                        <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest text-center">Diabetes<br>Association Accredited</span>
+                    </div>
+                    <!-- Cert 3 -->
+                    <div class="flex flex-col items-center justify-center gap-3 p-4">
+                        <i class="fas fa-hospital text-5xl text-gray-400 dark:text-gray-500"></i>
+                        <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest text-center">National Healthcare<br>Excellence</span>
+                    </div>
+                    <!-- Cert 4 -->
+                    <div class="flex flex-col items-center justify-center gap-3 p-4">
+                        <i class="fas fa-user-md text-5xl text-gray-400 dark:text-gray-500"></i>
+                        <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest text-center">Top Specialist<br>Award 2025</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CALL TO ACTION / JOIN US -->
+        <section class="py-24 relative overflow-hidden bg-primary">
+            <!-- Decorative background circles -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-secondary/50 blur-3xl"></div>
+            
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10 text-center flex flex-col items-center">
+                <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white text-3xl mb-8 border border-white/30">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6 max-w-3xl leading-tight">
+                    Ready to Take Control of Your Endocrine Health?
+                </h2>
+                <p class="text-blue-100 text-lg md:text-xl max-w-2xl mb-10 font-light">
+                    Our expert team is accepting new patients. Whether you require a routine checkup, diabetes management, or a complex diagnosis, we are here for you.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="booking.html" class="px-8 py-4 bg-white text-primary hover:bg-gray-100 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-xl flex items-center justify-center gap-2">
+                        <i class="fas fa-calendar-check"></i> Book an Appointment
+                    </a>
+                    <a href="contact.html" class="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-full font-bold text-lg transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-map-marker-alt"></i> Find Our Clinic
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-white dark:bg-darkCard border-t border-gray-100 dark:border-gray-800 pt-16 pb-8 mt-auto transition-colors duration-300">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <!-- Top Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Column -->
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i class="fas fa-heartbeat text-3xl text-primary bg-clip-text bg-gradient-to-br from-primary to-secondary"></i>
+                        <span class="font-serif text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-tight">EndoClinic</span>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Dedicated to improving metabolic health and enhancing patient wellness through specialized, compassionate endocrine care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">QuickLinks</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">About</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Service</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">Specialties</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Diabetes Management</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Thyroid Care</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Metabolic Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social & Contact -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">Connect</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-facebook-f w-5 text-center"></i> Facebook</a></li>
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-instagram w-5 text-center"></i> Instagram</a></li>
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-x-twitter w-5 text-center"></i> X</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Middle & Bottom Footer -->
+            <div class="border-y border-gray-200 dark:border-gray-800 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <h3 class="text-primary font-bold text-xl font-serif">Endocrinology & Diabetes Care</h3>
+                <div class="flex gap-8 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Terms & Conditions</a>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-gray-500 dark:text-gray-500 text-sm">
+                &copy; 2026 Endocrinology & Diabetes Care Clinic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Mobile Menu Logic
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const overlay = document.getElementById('mobileOverlay');
+
+            function toggleMenu() {
+                const isRtl = document.documentElement.dir === 'rtl';
+                if (isRtl) {
+                    mobileMenu.classList.toggle('rtl:-left-full');
+                    mobileMenu.classList.toggle('rtl:left-0');
+                } else {
+                    mobileMenu.classList.toggle('-right-full');
+                    mobileMenu.classList.toggle('right-0');
+                }
+                overlay.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+                
+                const icon = hamburger.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            // 2. Theme Toggle (Dark/Light)
+            const themeToggle = document.getElementById('themeToggle');
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+
+            function toggleTheme() {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // 3. RTL (Right-to-Left) Toggle
+            const rtlToggle = document.getElementById('rtlToggle');
+            const mobileRtlToggle = document.getElementById('mobileRtlToggle');
+
+            function toggleRTL() {
+                const html = document.documentElement;
+                html.dir = html.dir === 'rtl' ? 'ltr' : 'rtl';
+                localStorage.setItem('direction', html.dir);
+            }
+
+            rtlToggle.addEventListener('click', toggleRTL);
+            mobileRtlToggle.addEventListener('click', toggleRTL);
+            if (localStorage.getItem('direction') === 'rtl') {
+                document.documentElement.dir = 'rtl';
+            }
+
+            // 4. Active Link Highlight
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a, #mobileNavMenu a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    if (link.classList.contains('px-4') && link.classList.contains('py-2')) {
+                        link.classList.add('text-primary', 'bg-primary/10', 'dark:bg-primary/20');
+                    }
+                    else if (link.classList.contains('px-5') && link.classList.contains('py-2') && !link.classList.contains('border-2')) {
+                        link.classList.add('bg-primary', 'text-white');
+                    }
+                    else if (link.classList.contains('px-5') && link.classList.contains('py-3') && link.classList.contains('border-2')) {
+                        link.classList.remove('bg-white', 'dark:bg-darkBg', 'border-gray-200', 'dark:border-gray-700');
+                        link.classList.add('bg-primary', 'text-white', 'border-primary');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1480 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | Endocrinology & Diabetes Care Clinic</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7', // Medical Blue
+                        secondary: '#0369a1',
+                        accent: '#38bdf8',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for mobile menu */
+        .mobile-menu-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .mobile-menu-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        /* Accordion transition helper */
+        .faq-answer {
+            transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Mobile Overlay -->
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[998] hidden transition-opacity"></div>
+
+    <!-- ==================== HEADER & NAVBAR ==================== -->
+    <header class="sticky top-0 z-[1000] bg-white dark:bg-darkCard shadow-md transition-colors duration-300">
+        <nav class="max-w-[1400px] mx-auto flex justify-between items-center px-6 py-4 min-h-[80px]">
+
+            <!-- Clinic Logo -->
+            <a href="index.html" class="flex items-center gap-2 text-decoration-none">
+                <i class="fas fa-heartbeat text-3xl text-primary bg-clip-text bg-gradient-to-br from-primary to-secondary"></i>
+                <span class="font-serif text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-tight">EndoClinic</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden xl:flex items-center gap-2 m-0 p-0 list-none">
+                <!-- Home Dropdown -->
+                <li class="relative group">
+                    <a href="#" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all flex items-center gap-1 dark:hover:bg-primary/20">
+                        Home <i class="fas fa-caret-down text-sm"></i>
+                    </a>
+                    <ul class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-darkCard shadow-xl border border-gray-100 dark:border-gray-700 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <li><a href="index.html" class="block px-5 py-2 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">Home 1</a></li>
+                        <li><a href="home2.html" class="block px-5 py-2 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">Home 2</a></li>
+                    </ul>
+                </li>
+
+                <!-- Standard Links -->
+                <li><a href="about.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">About</a></li>
+                <li><a href="service.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Service</a></li>
+                <li><a href="careplan.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Care Plans</a></li>
+                <li><a href="booking.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Booking</a></li>
+                <li><a href="faq.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Faq</a></li>
+                <li><a href="contact.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Contact</a></li>
+
+                <!-- Dashboard Dropdown -->
+                <li class="relative group">
+                    <a href="#" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all flex items-center gap-1 dark:hover:bg-primary/20">
+                        Dashboard <i class="fas fa-caret-down text-sm"></i>
+                    </a>
+                    <ul class="absolute top-full left-0 mt-2 w-52 bg-white dark:bg-darkCard shadow-xl border border-gray-100 dark:border-gray-700 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <li><a href="user.html" class="block px-5 py-2 hover:bg-primary hover:text-white transition-colors">User Dashboard</a></li>
+                        <li><a href="admin.html" class="block px-5 py-2 hover:bg-primary hover:text-white transition-colors">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <!-- Auth Buttons -->
+                <li class="ml-4"><a href="login.html" class="px-6 py-2 rounded-full font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all">Login</a></li>
+
+                <!-- Theme & RTL Controls -->
+                <li class="flex items-center gap-2 ml-2 border-l border-gray-200 dark:border-gray-700 pl-4">
+                    <button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Toggle Theme">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="rtlToggle" class="px-3 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-bold text-sm" title="Toggle RTL">RTL</button>
+                </li>
+            </ul>
+
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger" class="xl:hidden w-10 h-10 border-2 border-gray-200 dark:border-gray-700 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-primary hover:border-primary transition-colors">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ==================== MOBILE NAV MENU (HAMBURGER) ==================== -->
+    <div id="mobileNavMenu" class="fixed top-0 -right-full w-[320px] h-screen bg-gray-50 dark:bg-darkCard z-[999] transition-all duration-400 border-l-[3px] border-primary pt-[90px] px-6 pb-8 overflow-y-auto mobile-menu-scroll rtl:border-l-0 rtl:border-r-[3px] rtl:-left-full rtl:right-auto shadow-2xl">
+        <ul class="flex flex-col gap-3 list-none p-0 m-0">
+            <!-- Mobile Links -->
+            <li><div class="px-5 py-3 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Home</div></li>
+            <li><a href="index.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Home 1</a></li>
+            <li><a href="home2.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Home 2</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Pages</div></li>
+            <li><a href="about.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">About</a></li>
+            <li><a href="service.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Service</a></li>
+            <li><a href="careplan.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Care Plans</a></li>
+            <li><a href="booking.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Booking</a></li>
+            <li><a href="faq.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Faq</a></li>
+            <li><a href="contact.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Contact</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Dashboard</div></li>
+            <li><a href="user.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">User Dashboard</a></li>
+            <li><a href="admin.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Admin Dashboard</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Account</div></li>
+            <li><a href="login.html" class="block px-5 py-3 text-center rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-colors">Login</a></li>
+        </ul>
+
+        <div class="mt-8 flex flex-col gap-4">
+            <button id="mobileThemeToggle" class="w-full flex items-center justify-center gap-3 border-2 border-gray-200 dark:border-gray-700 rounded-full py-3 bg-white dark:bg-darkBg hover:bg-primary hover:text-white hover:border-primary transition-colors font-medium">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                <span class="dark:hidden">Dark Mode</span>
+                <span class="hidden dark:block">Light Mode</span>
+            </button>
+            <button id="mobileRtlToggle" class="w-full flex items-center justify-center gap-3 border-2 border-gray-200 dark:border-gray-700 rounded-full py-3 bg-white dark:bg-darkBg hover:bg-primary hover:text-white hover:border-primary transition-colors font-medium">
+                <span>RTL</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== HERO BANNER ==================== -->
+    <section class="relative h-[60vh] min-h-[420px] flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <img src="images/diabeties (17).jpg" alt="Doctor answering patient questions" class="absolute inset-0 w-full h-full object-cover z-0">
+
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-transparent z-10 rtl:bg-gradient-to-l"></div>
+
+        <div class="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between">
+            <!-- Text Content -->
+            <div class="w-full lg:w-3/5 text-white">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/40 text-primary font-semibold text-sm tracking-wide uppercase mb-4">
+                    Patient Help & Resource Center
+                </span>
+                <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-5">
+                    Frequently Asked <br><span class="text-primary">Questions</span>
+                </h1>
+                <p class="text-gray-300 text-base md:text-lg max-w-xl mb-8 leading-relaxed">
+                    Evidence-based answers regarding endocrine testing, continuous glucose monitors, fasting rules, medication prior authorizations, and clinic visits.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#faq-directory" class="px-6 py-3 rounded-full font-semibold bg-primary hover:bg-secondary text-white transition-all shadow-lg hover:shadow-primary/30 flex items-center gap-2">
+                        Browse FAQs <i class="fas fa-arrow-down text-sm"></i>
+                    </a>
+                    <a href="#visit-prep" class="px-6 py-3 rounded-full font-semibold border-2 border-white/80 hover:bg-white hover:text-gray-900 text-white transition-all">
+                        Lab Prep Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN CONTENT (5 CLINICAL FAQ SECTIONS) ==================== -->
+    <main class="flex-grow">
+
+        <!-- ==================== SECTION 1: SEARCHABLE FAQ KNOWLEDGE BASE ==================== -->
+        <section id="faq-directory" class="py-20 bg-gray-50 dark:bg-darkCard/40 transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Clinical Knowledge Base
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Search Our <span class="text-primary">FAQ Directory</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-8">
+                        Type keywords below or filter by category to find instant clinical explanations written by our board-certified endocrinologists.
+                    </p>
+
+                    <!-- Real-Time Search Bar -->
+                    <div class="relative max-w-2xl mx-auto">
+                        <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg rtl:left-auto rtl:right-5"></i>
+                        <input type="text" id="faqSearchInput" placeholder="Search questions (e.g., fasting, Dexcom, biopsy, copay, TSH, pump)..." class="w-full pl-14 pr-12 py-4 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkCard text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:border-primary shadow-lg transition-all text-sm md:text-base rtl:pl-12 rtl:pr-14">
+                        <button id="faqSearchClear" class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hidden rtl:right-auto rtl:left-5">
+                            <i class="fas fa-times-circle text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12" id="faqCategoryFilter">
+                    <button data-category="all" class="category-btn active px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-primary text-white shadow-md">
+                        All Questions (<span id="count-all">20</span>)
+                    </button>
+                    <button data-category="appointments" class="category-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-darkCard text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary">
+                        Appointments & Triage (4)
+                    </button>
+                    <button data-category="diabetes" class="category-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-darkCard text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary">
+                        Diabetes & CGM Tech (4)
+                    </button>
+                    <button data-category="thyroid" class="category-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-darkCard text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary">
+                        Thyroid & Hormones (4)
+                    </button>
+                    <button data-category="labs" class="category-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-darkCard text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary">
+                        In-Office Labs & Prep (4)
+                    </button>
+                    <button data-category="insurance" class="category-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-darkCard text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary">
+                        Insurance & Prior Auth (4)
+                    </button>
+                </div>
+
+                <!-- FAQ Accordion List (20 Questions) -->
+                <div class="max-w-4xl mx-auto space-y-4" id="faqAccordionContainer">
+
+                    <!-- Item 1: Appointments -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="appointments">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">01</span>
+                                Do I need a doctor's referral to schedule an appointment with an endocrinologist?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    In most cases, <strong>no formal physician referral is required</strong> for patients with standard PPO insurance or Medicare Part B. You may self-refer and schedule directly through our online booking portal.
+                                </p>
+                                <p class="mb-3">
+                                    However, if your health plan is an HMO or specialized point-of-service (POS) network, your carrier may require an electronic referral authorization from your Primary Care Physician (PCP) before specialist visits are reimbursed.
+                                </p>
+                                <div class="bg-gray-50 dark:bg-darkBg p-3.5 rounded-xl border border-gray-200 dark:border-gray-800 text-xs text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                                    <i class="fas fa-info-circle text-primary text-sm"></i>
+                                    <span>Our intake coordinators verify your network coverage and referral requirements within 24 hours of receiving your booking.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Appointments -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="appointments">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">02</span>
+                                How quickly can I be seen, and do you offer urgent appointment slots?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Standard new patient consultations are typically scheduled within <strong>5 to 10 business days</strong>.
+                                </p>
+                                <p class="mb-3">
+                                    However, our clinic reserves daily <strong>Urgent Clinical Triage Slots</strong> for high-priority conditions, including:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
+                                    <li>Newly diagnosed Type 1 diabetes or recent hospital discharge for DKA/hypoglycemia.</li>
+                                    <li>Severe gestational diabetes in second or third trimester.</li>
+                                    <li>Rapidly enlarging or highly suspicious thyroid nodules (ACR TI-RADS 4/5).</li>
+                                    <li>Severe symptomatic hyperthyroidism or thyroid storm risk.</li>
+                                </ul>
+                                <p class="text-xs text-primary font-semibold">
+                                    Physician offices requesting urgent patient transfers can fax urgent records to (555) 363-6255 for same-day review.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Appointments -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="appointments">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">03</span>
+                                Are follow-up consultations available via Telehealth?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Yes! We provide HIPAA-compliant virtual telemedicine consultations for established patients across the state. Telehealth is ideal for:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
+                                    <li>Routine continuous glucose monitoring (CGM) trend reviews and basal insulin titration.</li>
+                                    <li>Thyroid medication dosage adjustments following off-site laboratory blood draws.</li>
+                                    <li>Medical weight loss check-ins and GLP-1/GIP tolerability assessments.</li>
+                                    <li>Lab results review and multidisciplinary dietitian counseling.</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">
+                                    <em>Note:</em> In-person attendance is required for physical palpation, in-office thyroid sonograms, FNA biopsies, diabetic foot vascular testing, and DEXA scans.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Appointments -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="appointments">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">04</span>
+                                What documents and supplies should I bring to my first visit?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-2">To make the most of your initial consultation, please bring:</p>
+                                <ul class="list-disc list-inside space-y-1.5 mb-3 text-sm">
+                                    <li>Government-issued photo identification and current health insurance card.</li>
+                                    <li>An accurate, itemized list of all medications, including exact dosages and over-the-counter supplements.</li>
+                                    <li>Prior relevant blood work (HbA1c, thyroid panels, CMP) and imaging reports from the last 12 months.</li>
+                                    <li>Your blood glucose meter, continuous glucose monitor reader, or insulin pump controller.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: Diabetes -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="diabetes">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">05</span>
+                                How does Continuous Glucose Monitoring (CGM) work, and do I still need fingersticks?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    A Continuous Glucose Monitor (such as <strong>Dexcom G7</strong> or <strong>FreeStyle Libre 3</strong>) uses a water-resistant sensor placed on the upper arm or abdomen. A flexible micro-filament measures glucose in the interstitial fluid between your cells every 60 seconds and transmits readings to your smartphone.
+                                </p>
+                                <p class="mb-3">
+                                    <strong>No routine fingersticks are needed!</strong> Modern CGMs are factory calibrated. You only need a traditional fingerstick if:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-2 text-sm">
+                                    <li>Your symptoms do not match your sensor reading (e.g., feeling dizzy/shaky when sensor reads 110 mg/dL).</li>
+                                    <li>During the first 2 hours of sensor warm-up.</li>
+                                    <li>If your sensor displays a "Brief Sensor Issue" or error code.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6: Diabetes -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="diabetes">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">06</span>
+                                What is an Automated Insulin Delivery (AID) / "Bionic Pancreas" pump system?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    An Automated Insulin Delivery (AID) system—such as <strong>Tandem Control-IQ</strong>, <strong>Omnipod 5</strong>, or <strong>Medtronic MiniMed 780G</strong>—combines an insulin pump with a continuous glucose sensor via a smart mathematical algorithm.
+                                </p>
+                                <p class="mb-3">
+                                    Every 5 minutes, the algorithm predicts where your blood glucose will be 30 minutes in the future. It automatically:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
+                                    <li>Increases or delivers micro-boluses when blood sugar is trending high.</li>
+                                    <li>Reduces or halts insulin delivery when blood sugar drops toward hypoglycemia.</li>
+                                </ul>
+                                <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+                                    Clinical studies show AID systems achieve over 70% Time-in-Range (70-180 mg/dL) and substantially eliminate overnight low blood sugars.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 7: Diabetes -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="diabetes">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">07</span>
+                                How do modern GLP-1 and GLP-1/GIP co-agonists improve metabolic health?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Modern incretin mimetics (such as once-weekly semaglutide and dual GLP-1/GIP tirzepatide) work on natural hormonal pathways originating in the digestive tract and brain:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
+                                    <li><strong>Glucose-Dependent Insulin Release:</strong> Promotes insulin secretion only when blood glucose is elevated, presenting minimal hypoglycemia risk.</li>
+                                    <li><strong>Glucagon Suppression:</strong> Halts abnormal hepatic glucose dumping from the liver.</li>
+                                    <li><strong>Satiety Signaling:</strong> Interacts with appetite centers in the hypothalamus to reduce cravings and "food noise".</li>
+                                    <li><strong>Cardio-Renal Protection:</strong> Proven to reduce cardiovascular event risk and preserve chronic kidney filtration.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 8: Diabetes -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="diabetes">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">08</span>
+                                What is the clinical "Rule of 15" for managing acute hypoglycemia?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    When blood glucose drops below <strong>70 mg/dL</strong>, treat immediately following the <strong>Rule of 15</strong>:
+                                </p>
+                                <ol class="list-decimal list-inside space-y-1.5 mb-3 text-sm">
+                                    <li>Consume <strong>15 grams of fast-acting simple carbohydrates</strong> (e.g., 4 oz fruit juice, 4 oz non-diet soda, or 3-4 glucose tablets). Avoid chocolate or peanut butter as fats delay sugar absorption.</li>
+                                    <li>Wait <strong>15 minutes</strong> resting quietly.</li>
+                                    <li>Re-check your blood glucose with a fingerstick.</li>
+                                    <li>If still below 70 mg/dL, repeat with another 15g of carbohydrates.</li>
+                                </ol>
+                                <div class="bg-rose-50 dark:bg-rose-900/30 p-3 rounded-xl border border-rose-200 dark:border-rose-800 text-xs text-rose-800 dark:text-rose-200">
+                                    <strong>Emergency Warning:</strong> For severe hypoglycemia with altered mental status or unconsciousness, administer emergency nasal glucagon (Baqsimi) or auto-injector glucagon immediately and call 911.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 9: Thyroid -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="thyroid">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">09</span>
+                                What is the clinical distinction between Hypothyroidism and Hyperthyroidism?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">Both conditions involve hormonal imbalances from the butterfly-shaped thyroid gland:</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm mb-3">
+                                    <div class="bg-sky-50 dark:bg-darkBg p-3.5 rounded-xl border border-sky-200 dark:border-sky-900/40">
+                                        <h5 class="font-bold text-sky-800 dark:text-sky-300 mb-1">Hypothyroidism (Underactive)</h5>
+                                        <p class="text-gray-600 dark:text-gray-300">High TSH, Low Free T4. Symptoms include chronic fatigue, unexpected weight gain, cold intolerance, dry skin, constipation, and brain fog (most commonly Hashimoto’s thyroiditis).</p>
+                                    </div>
+                                    <div class="bg-amber-50 dark:bg-darkBg p-3.5 rounded-xl border border-amber-200 dark:border-amber-900/40">
+                                        <h5 class="font-bold text-amber-800 dark:text-amber-300 mb-1">Hyperthyroidism (Overactive)</h5>
+                                        <p class="text-gray-600 dark:text-gray-300">Suppressed TSH, High Free T3/T4. Symptoms include racing heart rate, palpitations, tremor, unintentional weight loss, heat sensitivity, and sleep disruption (most commonly Graves’ disease).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 10: Thyroid -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="thyroid">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">10</span>
+                                When does a thyroid nodule require an in-office Fine Needle Aspiration (FNA) biopsy?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Over 90% of thyroid nodules are completely benign (non-cancerous). We use the <strong>American College of Radiology (ACR) TI-RADS</strong> ultrasound grading system to determine when a biopsy is clinically justified:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
+                                    <li>Nodules ≥1.0 cm with highly suspicious ultrasound features (marked hypoechogenicity, punctate microcalcifications, irregular margins, or taller-than-wide shape).</li>
+                                    <li>Nodules ≥1.5 cm with moderately suspicious features.</li>
+                                    <li>Nodules ≥2.5 cm with mildly suspicious features.</li>
+                                </ul>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">
+                                    Our in-office FNA takes just 15 minutes under gentle local anesthesia with zero downtime.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 11: Thyroid -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="thyroid">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">11</span>
+                                Why do I still experience fatigue and brain fog if my TSH lab is within "normal" range?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Standard commercial laboratory TSH reference ranges are remarkably wide (typically 0.45 to 4.50 mIU/L). However, research demonstrates that individuals often feel optimal within a narrower personalized range (often 1.0 to 2.0 mIU/L).
+                                </p>
+                                <p class="mb-3">
+                                    Furthermore, our endocrinologists evaluate the complete thyroid axis:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
+                                    <li><strong>Free T3 (Active Hormone):</strong> Assessing cellular conversion of T4 into active T3.</li>
+                                    <li><strong>Thyroid Antibodies (Anti-TPO, Anti-TG):</strong> Quantifying autoimmune Hashimoto's inflammation.</li>
+                                    <li><strong>Metabolic Micronutrients:</strong> Checking ferritin (iron storage), Vitamin D, and B12, which directly impact thyroid receptor binding.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 12: Thyroid -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="thyroid">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">12</span>
+                                How is Polycystic Ovary Syndrome (PCOS) diagnosed and managed by an endocrinologist?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    PCOS is diagnosed using the standardized <strong>Rotterdam Criteria</strong> (requiring at least two of: irregular ovulatory cycles, clinical or biochemical androgen excess, and polycystic ovarian morphology).
+                                </p>
+                                <p class="mb-3">
+                                    Because PCOS is deeply intertwined with hyperinsulinemia and insulin resistance, our medical management targets root metabolic causes:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-2 text-sm">
+                                    <li>Insulin-sensitizing pharmacotherapy (Metformin, inositols).</li>
+                                    <li>Anti-androgen therapy (spironolactone) for hirsutism and androgenic alopecia.</li>
+                                    <li>Cycle regulation and pre-conception ovulatory co-management with fertility specialists.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 13: Labs -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="labs">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">13</span>
+                                Do I need to fast before my appointment, and for how many hours?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Fasting requirements depend entirely on the specific laboratory biomarkers ordered for your visit:
+                                </p>
+                                <div class="space-y-2 mb-3 text-sm">
+                                    <div class="p-3 rounded-xl bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800">
+                                        <strong class="text-primary">Fasting Required (8-12 Hours):</strong> Fasting blood glucose, comprehensive lipid profiles (triglycerides/cholesterol), fasting insulin, and dynamic endocrine stimulation tests. Water is strongly encouraged!
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800">
+                                        <strong class="text-emerald-600 dark:text-emerald-400">No Fasting Needed:</strong> Point-of-care HbA1c tests, routine thyroid panels (TSH, Free T3/T4), and DEXA bone density scans do NOT require fasting.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 14: Labs -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="labs">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">14</span>
+                                Should I take my morning medications on the day of my laboratory tests?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">Please follow these specific rules for morning medications:</p>
+                                <ul class="list-disc list-inside space-y-2 mb-3 text-sm">
+                                    <li><strong>Blood Pressure & Heart Medications:</strong> Take them at your normal scheduled time with plain water.</li>
+                                    <li><strong>Thyroid Medications (Levothyroxine / Synthroid / Liothyronine):</strong> <em>HOLD</em> your morning dose until AFTER your blood draw, as circulating T4/T3 spikes temporarily 2–4 hours after ingestion.</li>
+                                    <li><strong>Diabetes Medications & Insulin:</strong> If fasting for lab work, hold meal-time rapid insulin and oral sulfonylureas until after you eat. Take your normal basal (long-acting) insulin unless instructed otherwise.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 15: Labs -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="labs">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">15</span>
+                                Why must I stop taking Biotin (Vitamin B7) before thyroid and hormone tests?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Biotin (frequently found in hair, skin, and nail supplements, B-complexes, and multivitamins) causes significant <strong>analytical assay interference</strong> in laboratory immunoassay machines.
+                                </p>
+                                <p class="mb-3">
+                                    Excess circulating biotin artificially causes:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-3 text-sm">
+                                    <li>Falsely suppressed TSH levels (mimicking hyperthyroidism).</li>
+                                    <li>Falsely elevated Free T3 and Free T4 readings.</li>
+                                    <li>Skewed cortisol, testosterone, and cardiac troponin lab results.</li>
+                                </ul>
+                                <div class="bg-amber-50 dark:bg-amber-900/30 p-3 rounded-xl border border-amber-200 dark:border-amber-800 text-xs text-amber-800 dark:text-amber-200">
+                                    <strong>Instruction:</strong> Please discontinue all biotin supplements at least <strong>72 hours (3 full days)</strong> prior to any scheduled endocrine blood draw.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 16: Labs -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="labs">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">16</span>
+                                What does a DEXA bone density scan involve, and is there any radiation risk?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    A Dual-Energy X-ray Absorptiometry (DEXA) scan is the gold-standard test for diagnosing osteopenia and osteoporosis. You remain comfortably clothed while lying on a cushioned table as an imaging arm passes over your lower spine and hips.
+                                </p>
+                                <p class="mb-3">
+                                    <strong>Radiation is negligible:</strong> A single DEXA scan emits less than 1 to 5 microsieverts of radiation—less than 1/10th of a single standard chest X-ray and less than the natural atmospheric background radiation you receive during an airline flight.
+                                </p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">
+                                    The examination requires under 15 minutes with immediate T-score and Trabecular Bone Score (TBS) microarchitecture reporting.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 17: Insurance -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="insurance">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">17</span>
+                                Why does my GLP-1 or CGM prescription require a Prior Authorization (PA)?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Because novel incretin agonists and continuous glucose sensors represent substantial prescription costs, insurance carriers place them on specialized tiers requiring clinical proof of necessity (Prior Authorization).
+                                </p>
+                                <p class="mb-3">
+                                    Our dedicated in-house Prior Authorization navigators handle the entire paperwork and clinical justification process directly with your insurer, including:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-2 text-sm">
+                                    <li>Documenting specific HbA1c metrics, chart notes, and diagnosis codes.</li>
+                                    <li>Completing formulary step-therapy exception requests.</li>
+                                    <li>Submitting physician peer-to-peer appeal letters for initial denials.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 18: Insurance -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="insurance">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">18</span>
+                                Which health insurance networks and Medicare plans do you accept?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">We are proudly in-network with the majority of major national and regional health carriers:</p>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs mb-3">
+                                    <div class="p-2 rounded bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800 font-medium">Medicare Part B</div>
+                                    <div class="p-2 rounded bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800 font-medium">Blue Cross Blue Shield</div>
+                                    <div class="p-2 rounded bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800 font-medium">UnitedHealthcare</div>
+                                    <div class="p-2 rounded bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800 font-medium">Aetna Health</div>
+                                    <div class="p-2 rounded bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800 font-medium">Cigna Healthcare</div>
+                                    <div class="p-2 rounded bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800 font-medium">Humana & Tricare</div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">
+                                    Feel free to call our billing desk at (555) 363-6254 to confirm your individual deductible and specialist copay.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 19: Insurance -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="insurance">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">19</span>
+                                Do you provide transparent self-pay pricing and Good Faith Estimates?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    <strong>Absolutely.</strong> Under the federal <em>No Surprises Act</em>, uninsured patients or patients choosing not to use insurance receive a clear, upfront written <strong>Good Faith Estimate</strong> of anticipated medical fees prior to their appointment.
+                                </p>
+                                <p class="mb-3">
+                                    We offer discounted flat-rate self-pay packages for:
+                                </p>
+                                <ul class="list-disc list-inside space-y-1 mb-2 text-sm">
+                                    <li>Initial Comprehensive Endocrine Consultations.</li>
+                                    <li>Established Patient Follow-Ups.</li>
+                                    <li>On-Site Rapid Point-of-Care HbA1c Lab Testing.</li>
+                                    <li>Thyroid Sonography & Fine Needle Aspiration Biopsy.</li>
+                                    <li>DEXA Bone Mineral Densitometry.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 20: Insurance -->
+                    <div class="faq-item bg-white dark:bg-darkCard rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden transition-all duration-300" data-category="insurance">
+                        <button class="faq-toggle w-full px-6 py-5 text-left rtl:text-right flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-primary transition-colors focus:outline-none">
+                            <span class="flex items-center gap-3 text-base md:text-lg">
+                                <span class="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xs shrink-0 font-bold">20</span>
+                                How can I access manufacturer copay cards to lower high prescription costs?
+                            </span>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden px-6 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed border-t border-transparent">
+                            <div class="pb-5 pt-2">
+                                <p class="mb-3">
+                                    Most pharmaceutical manufacturers offer manufacturer copay savings programs for patients with commercial insurance. These cards often reduce out-of-pocket pharmacy expenses to <strong>$25 to $35 per month</strong> for brand-name insulins, GLP-1 receptor agonists, and CGM supplies.
+                                </p>
+                                <p class="mb-2">
+                                    During your visit, our clinical navigators assist you with instant digital enrollment for manufacturer savings programs and can help qualifying low-income or Medicare patients explore non-profit patient foundation assistance grants.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- No Results Search Fallback -->
+                <div id="faqNoResults" class="hidden text-center py-12 max-w-md mx-auto">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">No Matching Questions</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-6">
+                        We couldn't find an answer matching your query. Use the form below to ask our clinical team directly.
+                    </p>
+                    <a href="#faq-contact" class="px-6 py-2.5 rounded-full font-semibold bg-primary hover:bg-secondary text-white transition-all text-sm">
+                        Ask a Nurse Directly
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 2: CLINICAL VISIT PREPARATION & FASTING PROTOCOLS ==================== -->
+        <section id="visit-prep" class="py-20 bg-white dark:bg-darkBg transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Pre-Visit Readiness
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Visit Preparation & <span class="text-primary">Fasting Protocols</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Accurate endocrine diagnosis depends upon pristine laboratory conditions. Follow these 4 evidence-based preparation rules before stepping into our clinic.
+                    </p>
+                </div>
+
+                <!-- 4 Prep Protocol Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Protocol 1 -->
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-glass-water"></i>
+                            </div>
+                            <span class="text-xs uppercase font-bold tracking-wider text-primary">8 - 12 Hours Fasting</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Metabolic & Lipid Panels</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-4">
+                                For fasting blood glucose, fasting insulin, and lipid panels, fast overnight. Do NOT drink juice, coffee, or milk. Water is encouraged to keep veins hydrated for smooth phlebotomy.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-gray-500 dark:text-gray-400">
+                            <strong>Note:</strong> Routine HbA1c testing does NOT require fasting.
+                        </div>
+                    </div>
+
+                    <!-- Protocol 2 -->
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <span class="text-xs uppercase font-bold tracking-wider text-amber-600 dark:text-amber-400">Medication Timing</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Thyroid Hormone Morning Dose</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-4">
+                                Hold your morning levothyroxine, Synthroid, or Armour Thyroid until <em>after</em> your blood draw. Ingesting hormone tablets causes temporary circulating spikes that distort Free T4 readings.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-amber-600 dark:text-amber-400 font-semibold">
+                            Stop Biotin supplements 72h prior to avoid assay interference.
+                        </div>
+                    </div>
+
+                    <!-- Protocol 3 -->
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-bone"></i>
+                            </div>
+                            <span class="text-xs uppercase font-bold tracking-wider text-purple-600 dark:text-purple-400">24-Hour Calcium Hold</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">DEXA Bone Density Scan</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-4">
+                                Discontinue calcium supplements and calcium-rich antacids (Tums) for 24-48 hours prior to your DEXA scan. Undissolved calcium tablets in the stomach create density artifacts on spinal images.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-gray-500 dark:text-gray-400">
+                            Wear loose clothing without metal buttons or zippers.
+                        </div>
+                    </div>
+
+                    <!-- Protocol 4 -->
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-mobile-screen-button"></i>
+                            </div>
+                            <span class="text-xs uppercase font-bold tracking-wider text-emerald-600 dark:text-emerald-400">Sync 24h Prior</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Device & CGM Cloud Upload</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-4">
+                                Ensure your CGM smartphone application (Dexcom Clarity, LibreView) or insulin pump receiver is synced to our clinic account code 24 hours prior to your visit for full AGP report analysis.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-gray-500 dark:text-gray-400">
+                            Bring your receiver PDM and backup test strips to the visit.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: DIABETES TECH & SENSOR TROUBLESHOOTING ==================== -->
+        <section id="device-troubleshooting" class="py-20 bg-gray-50 dark:bg-darkCard/40 transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Self-Service Device Clinic
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Diabetes Tech & Sensor <span class="text-primary">Troubleshooting</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Encountering a sensor alert or pump error? Use our clinical triage steps to quickly diagnose issues and avoid unnecessary interruptions in care.
+                    </p>
+                </div>
+
+                <!-- 4 Troubleshooting Pillars -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Issue 1 -->
+                    <div class="bg-white dark:bg-darkCard rounded-2xl p-8 border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col sm:flex-row gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-2xl shrink-0">
+                            <i class="fas fa-triangle-exclamation"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">"Brief Sensor Issue" or Gaps</h3>
+                                <span class="text-xs px-2.5 py-1 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary font-bold">CGM Sensor</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                Temporary sensor signal dropouts typically stem from localized interstitial fluid displacement, dehydration, or "compression lows" caused by sleeping directly on your arm sensor.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-darkBg p-3.5 rounded-xl border border-gray-200 dark:border-gray-800 text-xs text-gray-700 dark:text-gray-300 space-y-1.5">
+                                <div><strong>Step 1:</strong> Drink 16 oz of water and wait up to 3 hours without removing the sensor.</div>
+                                <div><strong>Step 2:</strong> Check blood glucose via traditional fingerstick if symptomatic.</div>
+                                <div><strong>Step 3:</strong> If the error persists beyond 3 hours, replace the sensor and submit a free replacement ticket directly via the Dexcom or Abbott app.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 2 -->
+                    <div class="bg-white dark:bg-darkCard rounded-2xl p-8 border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col sm:flex-row gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fas fa-arrow-trend-up"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Unexplained High BG on Pump</h3>
+                                <span class="text-xs px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 font-bold">Pump Triage</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                Sudden unexpected blood glucose above 250 mg/dL that fails to respond to pump boluses indicates an infusion set failure, kinked cannula, or degraded insulin.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-darkBg p-3.5 rounded-xl border border-gray-200 dark:border-gray-800 text-xs text-gray-700 dark:text-gray-300 space-y-1.5">
+                                <div><strong>The 2-Hour Rule:</strong> If a pump correction bolus does not decrease blood glucose in 2 hours, suspect occlusion.</div>
+                                <div><strong>Action:</strong> Administer a correction dose via <em>manual syringe or pen</em>. Immediately change the pump infusion site and reservoir.</div>
+                                <div><strong>Check Ketones:</strong> Test blood or urine ketones if BG remains &gt;250 mg/dL to prevent DKA.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 3 -->
+                    <div class="bg-white dark:bg-darkCard rounded-2xl p-8 border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col sm:flex-row gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fas fa-bandage"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Adhesive Rash & Detachment</h3>
+                                <span class="text-xs px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 font-bold">Skin Health</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                Sweating, active lifestyles, and medical adhesive allergies can cause sensors to peel prematurely or trigger localized contact dermatitis.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-darkBg p-3.5 rounded-xl border border-gray-200 dark:border-gray-800 text-xs text-gray-700 dark:text-gray-300 space-y-1.5">
+                                <div><strong>Skin Prep:</strong> Clean area with alcohol and allow to dry completely. Apply a barrier wipe (Skin-Tac or Cavilon No-Sting).</div>
+                                <div><strong>Overpatches:</strong> Apply breathable hypoallergenic waterproof overlay patches (Simpatch, Lexcam) on day 1.</div>
+                                <div><strong>Removal:</strong> Use adhesive release spray (TacAway or baby oil) to prevent skin tearing.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Issue 4 -->
+                    <div class="bg-white dark:bg-darkCard rounded-2xl p-8 border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col sm:flex-row gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Airport Travel & TSA Scanners</h3>
+                                <span class="text-xs px-2.5 py-1 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 font-bold">Travel Safety</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                                Continuous glucose monitors and insulin pump electronics are sensitive to high-intensity airport baggage X-ray radiation.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-darkBg p-3.5 rounded-xl border border-gray-200 dark:border-gray-800 text-xs text-gray-700 dark:text-gray-300 space-y-1.5">
+                                <div><strong>TSA Rule:</strong> Do NOT pass insulin pumps or CGM transmitters through baggage X-ray belts or millimeter-wave body scanners.</div>
+                                <div><strong>Hand Pat-Down:</strong> Inform TSA officers you are wearing medical devices and request a physical hand inspection.</div>
+                                <div><strong>Carry-On Only:</strong> Keep all insulin vials, pens, and glucagon in your carry-on bag—never in checked luggage where temperatures freeze.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4: INSURANCE & FINANCIAL NAVIGATION ==================== -->
+        <section id="insurance-financial" class="py-20 bg-white dark:bg-darkBg transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Clear Financial Guidance
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Insurance & <span class="text-primary">Prior Authorizations</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Healthcare billing should never be a mystery. We provide end-to-end prior authorization support, transparent self-pay estimates, and copay assistance navigation.
+                    </p>
+                </div>
+
+                <!-- 4 Financial Pillars -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 flex flex-col">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-file-shield"></i>
+                        </div>
+                        <h4 class="font-serif text-lg font-bold text-gray-900 dark:text-white mb-2">Dedicated PA Team</h4>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            Our in-house clinical coordinators initiate, track, and appeal prior authorizations for GLP-1/GIP agonists, AID pumps, and continuous glucose sensors directly with your pharmacy benefit manager.
+                        </p>
+                        <span class="mt-auto text-xs font-semibold text-primary">Over 92% First-Round Approval</span>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 flex flex-col">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-id-card-clip"></i>
+                        </div>
+                        <h4 class="font-serif text-lg font-bold text-gray-900 dark:text-white mb-2">Broad Network Access</h4>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            In-network with traditional Medicare Part B, Medicare Advantage, BCBS, UnitedHealthcare, Aetna, Cigna, and Humana. We verify your specialist copay before your visit.
+                        </p>
+                        <span class="mt-auto text-xs font-semibold text-primary">Electronic Eligibility Check</span>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 flex flex-col">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-hand-holding-dollar"></i>
+                        </div>
+                        <h4 class="font-serif text-lg font-bold text-gray-900 dark:text-white mb-2">Manufacturer Copay Cards</h4>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            We assist commercially insured patients with instant enrollment in manufacturer co-pay savings programs, reducing expensive brand medications to as little as $25/month.
+                        </p>
+                        <span class="mt-auto text-xs font-semibold text-primary">Zero Cost Enrollment Support</span>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 flex flex-col">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-scale-balanced"></i>
+                        </div>
+                        <h4 class="font-serif text-lg font-bold text-gray-900 dark:text-white mb-2">Good Faith Estimates</h4>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            Under the No Surprises Act, uninsured or self-pay patients receive clear written fee schedules before treatment with bundled pricing for visits, rapid labs, ultrasound, and DEXA scans.
+                        </p>
+                        <span class="mt-auto text-xs font-semibold text-primary">No Surprise Medical Bills</span>
+                    </div>
+
+                </div>
+
+                <!-- Callout Banner -->
+                <div class="bg-gradient-to-r from-sky-900 to-primary rounded-3xl p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h4 class="font-serif text-xl font-bold mb-2">Have a Question About Your Specific Insurance Plan?</h4>
+                        <p class="text-sky-100 text-sm max-w-xl">
+                            Our billing department is available Monday through Friday, 8:00 AM – 5:00 PM to review your policy benefits, deductible status, and medication formulary tier.
+                        </p>
+                    </div>
+                    <a href="tel:+15553636254" class="px-6 py-3 rounded-full font-bold bg-white text-primary hover:bg-gray-100 transition-all shrink-0 shadow-lg">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Billing Desk
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 5: ASK-A-NURSE DIRECT INQUIRY & TRIAGE CTA ==================== -->
+        <section id="faq-contact" class="py-20 bg-gradient-to-br from-primary via-secondary to-darkBg text-white relative overflow-hidden">
+            <!-- Subtle Radial Gradient Backgrounds -->
+            <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-24 -top-24 w-96 h-96 bg-primary/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Left Column: Form -->
+                    <div class="lg:col-span-7 bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl">
+                        <span class="inline-block px-3.5 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-4">
+                            Direct Clinical Triage
+                        </span>
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold mb-3">
+                            Didn't Find Your Answer? Ask Our Clinical Team
+                        </h2>
+                        <p class="text-sky-100 text-sm leading-relaxed mb-8">
+                            Submit a non-urgent clinical, billing, or pre-visit question. A registered nurse or clinical coordinator will respond to your inquiry within 1 business day.
+                        </p>
+
+                        <!-- Interactive Form -->
+                        <form id="askNurseForm" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-sky-100 mb-1">Your Full Name *</label>
+                                    <input type="text" id="nurseName" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-sky-200 text-sm focus:outline-none focus:bg-white/30 focus:border-white transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-sky-100 mb-1">Your Email Address *</label>
+                                    <input type="email" id="nurseEmail" required placeholder="jane@example.com" class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-sky-200 text-sm focus:outline-none focus:bg-white/30 focus:border-white transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-sky-100 mb-1">Phone Number</label>
+                                    <input type="tel" id="nursePhone" placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-sky-200 text-sm focus:outline-none focus:bg-white/30 focus:border-white transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-sky-100 mb-1">Topic Category *</label>
+                                    <select id="nurseCategory" required class="w-full px-4 py-3 rounded-xl bg-sky-900/80 border border-white/30 text-white text-sm focus:outline-none focus:border-white transition-all">
+                                        <option value="General Consultation" class="bg-darkBg text-white">General Consultation</option>
+                                        <option value="Diabetes & CGM Devices" class="bg-darkBg text-white">Diabetes & CGM Devices</option>
+                                        <option value="Thyroid & FNA Biopsy" class="bg-darkBg text-white">Thyroid & FNA Biopsy</option>
+                                        <option value="Lab Test Prep & Fasting" class="bg-darkBg text-white">Lab Test Prep & Fasting</option>
+                                        <option value="Insurance & Prior Auth" class="bg-darkBg text-white">Insurance & Prior Auth</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-sky-100 mb-1">Your Question or Message *</label>
+                                <textarea id="nurseMessage" rows="4" required placeholder="Describe your question or situation in detail..." class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-sky-200 text-sm focus:outline-none focus:bg-white/30 focus:border-white transition-all"></textarea>
+                            </div>
+
+                            <div class="flex items-center gap-2 pt-1">
+                                <input type="checkbox" id="existingPatientCheck" class="w-4 h-4 rounded text-primary focus:ring-0">
+                                <label for="existingPatientCheck" class="text-xs text-sky-100 cursor-pointer">I am an existing patient at EndoClinic</label>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl font-bold bg-white text-primary hover:bg-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 text-base flex items-center justify-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Submit Question to Clinical Team</span>
+                            </button>
+                        </form>
+
+                        <!-- Success Alert Message -->
+                        <div id="nurseFormSuccess" class="hidden mt-6 p-4 rounded-xl bg-emerald-500/20 border border-emerald-400 text-white text-sm flex items-start gap-3">
+                            <i class="fas fa-check-circle text-emerald-300 text-xl shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong class="block font-bold">Question Received!</strong>
+                                <span>Your inquiry has been routed to our clinical triage team. We will review your chart and reply via email or phone within 1 business day.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Quick Helpline & Emergency Notice -->
+                    <div class="lg:col-span-5 space-y-6">
+                        
+                        <!-- Helpline Card -->
+                        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-white/20 text-accent flex items-center justify-center text-xl">
+                                    <i class="fas fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-xl font-bold">Direct Nurse Line</h4>
+                                    <p class="text-xs text-sky-200">Mon - Fri: 8:00 AM - 5:00 PM</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-sky-100 leading-relaxed mb-6">
+                                Speak directly with a triage nurse for prescription refills, sensor triage, or urgent appointment inquiries.
+                            </p>
+                            <a href="tel:+15553636254" class="block w-full py-3.5 rounded-full text-center font-bold bg-white text-primary hover:bg-gray-100 transition-all shadow-md text-base">
+                                <i class="fas fa-phone-alt mr-2"></i> +1 (555) 363-6254
+                            </a>
+                        </div>
+
+                        <!-- Patient Portal Card -->
+                        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-white/20 text-accent flex items-center justify-center text-xl">
+                                    <i class="fas fa-user-lock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-xl font-bold">Existing Patient Portal</h4>
+                                    <p class="text-xs text-sky-200">24/7 Secure Direct Messaging</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-sky-100 leading-relaxed mb-6">
+                                View laboratory results, download doctor visit notes, and message your personal endocrinologist through your HIPAA-secure portal.
+                            </p>
+                            <a href="user.html" class="block w-full py-3.5 rounded-full text-center font-semibold border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 transition-all text-base">
+                                <i class="fas fa-arrow-right-to-bracket mr-2"></i> Launch Patient Portal
+                            </a>
+                        </div>
+
+                        <!-- Urgent Medical Safety Warning -->
+                        <div class="bg-rose-500/20 backdrop-blur-md rounded-3xl p-6 border border-rose-300/40 text-rose-100 text-xs leading-relaxed">
+                            <div class="flex items-center gap-2 font-bold text-white text-sm mb-2">
+                                <i class="fas fa-shield-heart text-rose-300"></i> Urgent Medical Emergency Notice
+                            </div>
+                            <p>
+                                If you are experiencing acute severe hypoglycemia (&lt;54 mg/dL with confusion), suspected Diabetic Ketoacidosis (nausea, vomiting, fruity breath), or sudden chest pain, do not wait for an online response. <strong>Call 911 or visit the nearest emergency department immediately.</strong>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-white dark:bg-darkCard border-t border-gray-100 dark:border-gray-800 pt-16 pb-8 mt-auto transition-colors duration-300">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <!-- Top Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Column -->
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i class="fas fa-heartbeat text-3xl text-primary bg-clip-text bg-gradient-to-br from-primary to-secondary"></i>
+                        <span class="font-serif text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-tight">EndoClinic</span>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Dedicated to improving metabolic health and enhancing patient wellness through specialized, compassionate endocrine care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">QuickLinks</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">About</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Service</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">Specialties</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Diabetes Management</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Thyroid Care</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Metabolic Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social & Contact -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">Connect</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-facebook-f w-5 text-center"></i> Facebook</a></li>
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-instagram w-5 text-center"></i> Instagram</a></li>
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-x-twitter w-5 text-center"></i> X</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Middle & Bottom Footer -->
+            <div class="border-y border-gray-200 dark:border-gray-800 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <h3 class="text-primary font-bold text-xl font-serif">Endocrinology & Diabetes Care</h3>
+                <div class="flex gap-8 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Terms & Conditions</a>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-gray-500 dark:text-gray-500 text-sm">
+                &copy; 2026 Endocrinology & Diabetes Care Clinic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Mobile Menu Logic
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const overlay = document.getElementById('mobileOverlay');
+
+            function toggleMenu() {
+                const isRtl = document.documentElement.dir === 'rtl';
+                if (isRtl) {
+                    mobileMenu.classList.toggle('rtl:-left-full');
+                    mobileMenu.classList.toggle('rtl:left-0');
+                } else {
+                    mobileMenu.classList.toggle('-right-full');
+                    mobileMenu.classList.toggle('right-0');
+                }
+                overlay.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+                
+                const icon = hamburger.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            // 2. Theme Toggle (Dark/Light)
+            const themeToggle = document.getElementById('themeToggle');
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+
+            function toggleTheme() {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // 3. RTL (Right-to-Left) Toggle
+            const rtlToggle = document.getElementById('rtlToggle');
+            const mobileRtlToggle = document.getElementById('mobileRtlToggle');
+
+            function toggleRTL() {
+                const html = document.documentElement;
+                html.dir = html.dir === 'rtl' ? 'ltr' : 'rtl';
+                localStorage.setItem('direction', html.dir);
+            }
+
+            rtlToggle.addEventListener('click', toggleRTL);
+            mobileRtlToggle.addEventListener('click', toggleRTL);
+            if (localStorage.getItem('direction') === 'rtl') {
+                document.documentElement.dir = 'rtl';
+            }
+
+            // 4. Active Link Highlight
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a, #mobileNavMenu a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    if (link.classList.contains('px-4') && link.classList.contains('py-2')) {
+                        link.classList.add('text-primary', 'bg-primary/10', 'dark:bg-primary/20');
+                    }
+                    else if (link.classList.contains('px-5') && link.classList.contains('py-2') && !link.classList.contains('border-2')) {
+                        link.classList.add('bg-primary', 'text-white');
+                    }
+                    else if (link.classList.contains('px-5') && link.classList.contains('py-3') && link.classList.contains('border-2')) {
+                        link.classList.remove('bg-white', 'dark:bg-darkBg', 'border-gray-200', 'dark:border-gray-700');
+                        link.classList.add('bg-primary', 'text-white', 'border-primary');
+                    }
+                }
+            });
+
+            // 5. Accordion Expand/Collapse
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const toggleBtn = item.querySelector('.faq-toggle');
+                const answer = item.querySelector('.faq-answer');
+                const chevron = toggleBtn.querySelector('.fa-chevron-down');
+
+                toggleBtn.addEventListener('click', () => {
+                    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+                    // Close all others
+                    faqItems.forEach(otherItem => {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherChevron = otherItem.querySelector('.fa-chevron-down');
+                        if (otherAnswer && otherAnswer !== answer) {
+                            otherAnswer.style.maxHeight = '0px';
+                            if (otherChevron) otherChevron.style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current
+                    if (isOpen) {
+                        answer.style.maxHeight = '0px';
+                        if (chevron) chevron.style.transform = 'rotate(0deg)';
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        if (chevron) chevron.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Open the first FAQ item by default
+            if (faqItems.length > 0) {
+                const firstAnswer = faqItems[0].querySelector('.faq-answer');
+                const firstChevron = faqItems[0].querySelector('.fa-chevron-down');
+                if (firstAnswer) {
+                    firstAnswer.style.maxHeight = firstAnswer.scrollHeight + 'px';
+                    if (firstChevron) firstChevron.style.transform = 'rotate(180deg)';
+                }
+            }
+
+            // 6. FAQ Search & Category Filter
+            const searchInput = document.getElementById('faqSearchInput');
+            const clearSearchBtn = document.getElementById('faqSearchClear');
+            const categoryBtns = document.querySelectorAll('#faqCategoryFilter .category-btn');
+            const noResults = document.getElementById('faqNoResults');
+
+            let currentCategory = 'all';
+            let currentSearchTerm = '';
+
+            function filterFaqs() {
+                let visibleCount = 0;
+
+                faqItems.forEach(item => {
+                    const itemCat = item.getAttribute('data-category');
+                    const text = item.textContent.toLowerCase();
+
+                    const matchesCat = (currentCategory === 'all' || itemCat === currentCategory);
+                    const matchesSearch = (!currentSearchTerm || text.includes(currentSearchTerm));
+
+                    if (matchesCat && matchesSearch) {
+                        item.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                if (noResults) {
+                    if (visibleCount === 0) {
+                        noResults.classList.remove('hidden');
+                    } else {
+                        noResults.classList.add('hidden');
+                    }
+                }
+            }
+
+            // Category Button Click
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                        b.classList.add('bg-white', 'dark:bg-darkCard', 'text-gray-600', 'dark:text-gray-300', 'border', 'border-gray-200', 'dark:border-gray-700');
+                    });
+                    btn.classList.add('bg-primary', 'text-white', 'shadow-md');
+                    btn.classList.remove('bg-white', 'dark:bg-darkCard', 'text-gray-600', 'dark:text-gray-300', 'border');
+
+                    currentCategory = btn.getAttribute('data-category');
+                    filterFaqs();
+                });
+            });
+
+            // Search Input Event
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    currentSearchTerm = e.target.value.trim().toLowerCase();
+                    if (currentSearchTerm.length > 0) {
+                        clearSearchBtn.classList.remove('hidden');
+                    } else {
+                        clearSearchBtn.classList.add('hidden');
+                    }
+                    filterFaqs();
+                });
+            }
+
+            // Clear Search
+            if (clearSearchBtn) {
+                clearSearchBtn.addEventListener('click', () => {
+                    searchInput.value = '';
+                    currentSearchTerm = '';
+                    clearSearchBtn.classList.add('hidden');
+                    filterFaqs();
+                    searchInput.focus();
+                });
+            }
+
+            // 7. Interactive Ask-a-Nurse Form Submission
+            const nurseForm = document.getElementById('askNurseForm');
+            const nurseSuccess = document.getElementById('nurseFormSuccess');
+
+            if (nurseForm) {
+                nurseForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const submitBtn = nurseForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                        nurseForm.reset();
+                        if (nurseSuccess) {
+                            nurseSuccess.classList.remove('hidden');
+                            nurseSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    }, 800);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

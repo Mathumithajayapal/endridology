@@ -1,0 +1,1206 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 2 | Endocrinology & Diabetes Care Clinic</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7', // Medical Blue
+                        secondary: '#0369a1',
+                        accent: '#38bdf8',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for mobile menu */
+        .mobile-menu-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .mobile-menu-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Mobile Overlay -->
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/50 z-[998] hidden transition-opacity"></div>
+
+    <!-- ==================== HEADER & NAVBAR ==================== -->
+    <header class="sticky top-0 z-[1000] bg-white dark:bg-darkCard shadow-md transition-colors duration-300">
+        <nav class="max-w-[1400px] mx-auto flex justify-between items-center px-6 py-4 min-h-[80px]">
+
+            <!-- Clinic Logo -->
+            <a href="index.html" class="flex items-center gap-2 text-decoration-none">
+                <i class="fas fa-heartbeat text-3xl text-primary bg-clip-text bg-gradient-to-br from-primary to-secondary"></i>
+                <span class="font-serif text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-tight">EndoClinic</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden xl:flex items-center gap-2 m-0 p-0 list-none">
+                <!-- Home Dropdown -->
+                <li class="relative group">
+                    <a href="#" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all flex items-center gap-1 dark:hover:bg-primary/20">
+                        Home <i class="fas fa-caret-down text-sm"></i>
+                    </a>
+                    <ul class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-darkCard shadow-xl border border-gray-100 dark:border-gray-700 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <li><a href="index.html" class="block px-5 py-2 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">Home 1</a></li>
+                        <li><a href="home2.html" class="block px-5 py-2 hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">Home 2</a></li>
+                    </ul>
+                </li>
+
+                <!-- Standard Links -->
+                <li><a href="about.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">About</a></li>
+                <li><a href="service.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Service</a></li>
+                <li><a href="careplan.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Care Plans</a></li>
+                <li><a href="booking.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Booking</a></li>
+                <li><a href="faq.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Faq</a></li>
+                <li><a href="contact.html" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all dark:hover:bg-primary/20">Contact</a></li>
+
+                <!-- Dashboard Dropdown -->
+                <li class="relative group">
+                    <a href="#" class="px-4 py-2 font-medium rounded-full hover:bg-primary/10 hover:text-primary transition-all flex items-center gap-1 dark:hover:bg-primary/20">
+                        Dashboard <i class="fas fa-caret-down text-sm"></i>
+                    </a>
+                    <ul class="absolute top-full left-0 mt-2 w-52 bg-white dark:bg-darkCard shadow-xl border border-gray-100 dark:border-gray-700 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <li><a href="user.html" class="block px-5 py-2 hover:bg-primary hover:text-white transition-colors">User Dashboard</a></li>
+                        <li><a href="admin.html" class="block px-5 py-2 hover:bg-primary hover:text-white transition-colors">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <!-- Auth Buttons -->
+                <li class="ml-4"><a href="login.html" class="px-6 py-2 rounded-full font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all">Login</a></li>
+
+                <!-- Theme & RTL Controls -->
+                <li class="flex items-center gap-2 ml-2 border-l border-gray-200 dark:border-gray-700 pl-4">
+                    <button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="Toggle Theme">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <button id="rtlToggle" class="px-3 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-bold text-sm" title="Toggle RTL">RTL</button>
+                </li>
+            </ul>
+
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="hamburger" class="xl:hidden w-10 h-10 border-2 border-gray-200 dark:border-gray-700 rounded-lg flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-primary hover:border-primary transition-colors">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ==================== MOBILE NAV MENU (HAMBURGER) ==================== -->
+    <div id="mobileNavMenu" class="fixed top-0 -right-full w-[320px] h-screen bg-gray-50 dark:bg-darkCard z-[999] transition-all duration-400 border-l-[3px] border-primary pt-[90px] px-6 pb-8 overflow-y-auto mobile-menu-scroll rtl:border-l-0 rtl:border-r-[3px] rtl:-left-full rtl:right-auto shadow-2xl">
+        <ul class="flex flex-col gap-3 list-none p-0 m-0">
+            <!-- Mobile Links -->
+            <li><div class="px-5 py-3 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Home</div></li>
+            <li><a href="index.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Home 1</a></li>
+            <li><a href="home2.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Home 2</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Pages</div></li>
+            <li><a href="about.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">About</a></li>
+            <li><a href="service.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Service</a></li>
+            <li><a href="careplan.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Care Plans</a></li>
+            <li><a href="booking.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Booking</a></li>
+            <li><a href="faq.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Faq</a></li>
+            <li><a href="contact.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Contact</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Dashboard</div></li>
+            <li><a href="user.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">User Dashboard</a></li>
+            <li><a href="admin.html" class="block px-5 py-3 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-darkBg font-semibold hover:bg-primary hover:text-white hover:border-primary transition-colors">Admin Dashboard</a></li>
+
+            <li><div class="px-5 py-3 mt-2 font-semibold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">Account</div></li>
+            <li><a href="login.html" class="block px-5 py-3 text-center rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-colors">Login</a></li>
+        </ul>
+
+        <div class="mt-8 flex flex-col gap-4">
+            <button id="mobileThemeToggle" class="w-full flex items-center justify-center gap-3 border-2 border-gray-200 dark:border-gray-700 rounded-full py-3 bg-white dark:bg-darkBg hover:bg-primary hover:text-white hover:border-primary transition-colors font-medium">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                <span class="dark:hidden">Dark Mode</span>
+                <span class="hidden dark:block">Light Mode</span>
+            </button>
+            <button id="mobileRtlToggle" class="w-full flex items-center justify-center gap-3 border-2 border-gray-200 dark:border-gray-700 rounded-full py-3 bg-white dark:bg-darkBg hover:bg-primary hover:text-white hover:border-primary transition-colors font-medium">
+                <span>RTL</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== HERO BANNER ==================== -->
+    <section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <img src="images/diabeties (15).jpg" alt="Advanced Clinical Consultation" class="absolute inset-0 w-full h-full object-cover z-0">
+
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-transparent z-10 rtl:bg-gradient-to-l"></div>
+
+        <div class="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between">
+            <!-- Text Content -->
+            <div class="w-full lg:w-3/5 text-white">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/40 text-primary font-semibold text-sm tracking-wide uppercase mb-4">
+                    Next-Generation Endocrine Medicine
+                </span>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    Precision <span class="text-primary">Metabolic Care</span> &<br>Hormone Wellness.
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
+                    Harnessing continuous sensor telemetry, bionic insulin pump therapies, thyroid sonography, and root-cause metabolic solutions for lasting health.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="booking.html" class="px-8 py-4 rounded-full bg-primary hover:bg-secondary text-white font-semibold text-lg transition-all shadow-lg hover:shadow-primary/30 flex items-center gap-2 group">
+                        Book Appointment <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform rtl:rotate-180"></i>
+                    </a>
+                    <a href="careplan.html" class="px-8 py-4 rounded-full bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 font-semibold text-lg transition-all flex items-center gap-2">
+                        Explore Care Plans
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Features Badge -->
+            <div class="hidden lg:flex w-2/5 justify-end mt-12 lg:mt-0 relative">
+                <div class="bg-white dark:bg-darkCard p-6 rounded-2xl shadow-2xl border-b-4 border-primary absolute -bottom-10 right-10 w-80 animate-bounce hover:animate-none duration-1000">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl shrink-0">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Active CGM Telemetry</h4>
+                            <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">94% Target Time-in-Range</p>
+                            <p class="text-[11px] text-gray-500 dark:text-gray-400">Dexcom G7 & Libre 3 Linked</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN CONTENT (7 UNIQUE SECTIONS FOR HOME 2) ==================== -->
+    <main class="flex-grow">
+
+        <!-- ==================== SECTION 1: THE PRECISION ENDOCRINOLOGY ECOSYSTEM ==================== -->
+        <section id="endocrine-ecosystem" class="py-20 bg-white dark:bg-darkBg transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Integrated Clinical Framework
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        The Precision <span class="text-primary">Endocrine Ecosystem</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Hormones and metabolism are an interconnected bio-network. Rather than treating isolated symptoms, we optimize your health through a unified 4-pillar precision model.
+                    </p>
+                </div>
+
+                <!-- 4 Interactive Ecosystem Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Pillar 1 -->
+                    <div class="p-8 rounded-3xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-satellite-dish"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-primary">Continuous Biometrics</span>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white my-3">Continuous Telemetry & Cloud Oversight</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                We eliminate the blind spots of intermittent fingersticks. By pairing continuous glucose monitors (Dexcom G7, FreeStyle Libre 3) directly to our clinic console, our clinical specialists observe real-time glycemic trends between appointments.
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-xs text-gray-700 dark:text-gray-300 pt-4 border-t border-gray-200 dark:border-gray-800">
+                                <div><i class="fas fa-check text-primary mr-1"></i> Minute-by-Minute Telemetry</div>
+                                <div><i class="fas fa-check text-primary mr-1"></i> Automated Hypo Prediction</div>
+                                <div><i class="fas fa-check text-primary mr-1"></i> Cloud AGP Trend Reports</div>
+                                <div><i class="fas fa-check text-primary mr-1"></i> Proactive Dose Adjustments</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="p-8 rounded-3xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 hover:border-purple-500 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Cellular Endocrinology</span>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white my-3">Sub-Cellular Hormone Balancing</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                "Normal" reference ranges don't always mean optimal health. We perform comprehensive cellular hormone mapping&mdash;including Free T3/T4 conversion, autoimmune antibodies, cortisol diurnal rhythms, and androgen balances for true symptom resolution.
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-xs text-gray-700 dark:text-gray-300 pt-4 border-t border-gray-200 dark:border-gray-800">
+                                <div><i class="fas fa-check text-purple-500 mr-1"></i> Free T3 Conversion Mapping</div>
+                                <div><i class="fas fa-check text-purple-500 mr-1"></i> Hashimoto's Anti-TPO Tracking</div>
+                                <div><i class="fas fa-check text-purple-500 mr-1"></i> Diurnal Cortisol Axis Tests</div>
+                                <div><i class="fas fa-check text-purple-500 mr-1"></i> Bioequivalent Formulations</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="p-8 rounded-3xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 hover:border-emerald-500 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-capsules"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Root-Cause Therapeutics</span>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white my-3">Targeted Incretin & Peptide Therapies</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                Harnessing the revolution in metabolic medicine. We prescribe and personalize once-weekly dual incretin receptor co-agonists (GLP-1/GIP) and SGLT-2 inhibitors to restore insulin sensitivity, protect kidneys, and reduce visceral cardiovascular fat.
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-xs text-gray-700 dark:text-gray-300 pt-4 border-t border-gray-200 dark:border-gray-800">
+                                <div><i class="fas fa-check text-emerald-500 mr-1"></i> Dual Incretin Co-Agonists</div>
+                                <div><i class="fas fa-check text-emerald-500 mr-1"></i> Visceral Adiposity Reduction</div>
+                                <div><i class="fas fa-check text-emerald-500 mr-1"></i> Fatty Liver (MASLD) Reversal</div>
+                                <div><i class="fas fa-check text-emerald-500 mr-1"></i> Cardiovascular Protection</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="p-8 rounded-3xl bg-gray-50 dark:bg-darkCard border border-gray-200 dark:border-gray-800 hover:border-amber-500 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-bowl-food"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Nutritional Science</span>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white my-3">Metabolic Nutrition & Lifestyle Coaching</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                Diets aren't one-size-fits-all. Our registered dietitians and Certified Diabetes Care & Education Specialists (CDCES) analyze your personal CGM glycemic spikes to build individualized macronutrient partitioning and muscle-preserving plans.
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 text-xs text-gray-700 dark:text-gray-300 pt-4 border-t border-gray-200 dark:border-gray-800">
+                                <div><i class="fas fa-check text-amber-500 mr-1"></i> Spike-Trigger Food Mapping</div>
+                                <div><i class="fas fa-check text-amber-500 mr-1"></i> 1-on-1 CDCES Consultation</div>
+                                <div><i class="fas fa-check text-amber-500 mr-1"></i> Lean Muscle Preservation</div>
+                                <div><i class="fas fa-check text-amber-500 mr-1"></i> Circadian Meal Timing</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 2: CLINICAL IMPACT & GLYCEMIC TRANSFORMATION ==================== -->
+        <section id="clinical-impact" class="py-20 bg-gray-50 dark:bg-darkCard/40 transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Proven Clinical Outcomes
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Measurable Patient <span class="text-primary">Impact & Registry Data</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Numbers don't lie. Our continuous telemetry model consistently outperforms conventional sporadic healthcare across every key metabolic biomarker.
+                    </p>
+                </div>
+
+                <!-- 4 Performance Metric Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-200 dark:border-gray-800 text-center shadow-sm">
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Target Range</span>
+                        <div class="font-serif text-5xl font-bold text-gray-900 dark:text-white my-3">94.2%</div>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">Average Time-in-Range (70-180 mg/dL) within 90 days vs 58% national average.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-200 dark:border-gray-800 text-center shadow-sm">
+                        <span class="text-xs font-bold uppercase tracking-wider text-primary">Glycemic Drop</span>
+                        <div class="font-serif text-5xl font-bold text-primary my-3">-2.4%</div>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">Average reduction in HbA1c across our diabetes cohort over 6 months.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-200 dark:border-gray-800 text-center shadow-sm">
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Symptom Relief</span>
+                        <div class="font-serif text-5xl font-bold text-gray-900 dark:text-white my-3">89%</div>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">Thyroid patients report complete resolution of chronic brain fog and fatigue.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-200 dark:border-gray-800 text-center shadow-sm">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Data Analyzed</span>
+                        <div class="font-serif text-5xl font-bold text-gray-900 dark:text-white my-3">15k+</div>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">Continuous CGM telemetry hours analyzed weekly by our medical physicians.</p>
+                    </div>
+
+                </div>
+
+                <!-- Visual Ambulatory Glucose Profile (AGP) Comparison -->
+                <div class="bg-white dark:bg-darkCard rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-gray-800 shadow-xl">
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-8">
+                        <div>
+                            <span class="text-xs uppercase font-bold text-primary tracking-wider">Clinical Case Comparison</span>
+                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-1">
+                                Conventional Care vs. EndoClinic Continuous Telemetry
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-1 max-w-xl">
+                                See the difference between sporadic quarterly check-ups and continuous real-time proactive endocrine oversight.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-6 text-xs font-semibold">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-rose-500"></span>
+                                <span class="text-gray-600 dark:text-gray-300">Sporadic Care (Erratic)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-emerald-500"></span>
+                                <span class="text-gray-600 dark:text-gray-300">EndoClinic Protocol (Stable)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulated Glucose Wave Comparison Bars -->
+                    <div class="space-y-6">
+                        <!-- Before -->
+                        <div class="p-4 rounded-2xl bg-rose-50/60 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/40">
+                            <div class="flex justify-between text-xs font-bold text-rose-700 dark:text-rose-400 mb-2">
+                                <span>Before EndoClinic (Fingerstick Testing Only)</span>
+                                <span>HbA1c: 9.8% &bull; Time-in-Range: 42% &bull; Dangerous Nighttime Lows</span>
+                            </div>
+                            <div class="w-full h-8 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden flex">
+                                <div class="bg-rose-500 h-full w-[25%]" title="Very High (>250 mg/dL)"></div>
+                                <div class="bg-amber-400 h-full w-[33%]" title="High (181-250 mg/dL)"></div>
+                                <div class="bg-emerald-500 h-full w-[28%]" title="Target Range (70-180 mg/dL)"></div>
+                                <div class="bg-rose-600 h-full w-[14%]" title="Severe Low (<70 mg/dL)"></div>
+                            </div>
+                        </div>
+
+                        <!-- After -->
+                        <div class="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40">
+                            <div class="flex justify-between text-xs font-bold text-emerald-700 dark:text-emerald-400 mb-2">
+                                <span>After 90 Days with EndoClinic Care Plan</span>
+                                <span>HbA1c: 6.4% &bull; Time-in-Range: 94% &bull; Zero Nocturnal Hypoglycemia</span>
+                            </div>
+                            <div class="w-full h-8 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden flex">
+                                <div class="bg-rose-500 h-full w-[2%]" title="Very High"></div>
+                                <div class="bg-amber-400 h-full w-[4%]" title="High"></div>
+                                <div class="bg-emerald-500 h-full w-[94%]" title="Target Range"></div>
+                                <div class="bg-rose-600 h-full w-[0%]" title="Low (0%)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: NEXT-GEN DIAGNOSTIC SUITE ==================== -->
+        <section id="diagnostic-suite" class="py-20 bg-white dark:bg-darkBg transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        On-Site Technology Tour
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Hospital-Grade <span class="text-primary">Diagnostic Suite</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Never wait weeks for external hospital test results. All imaging, elastography, bone mineral scans, and rapid capillary blood labs are conducted in-house.
+                    </p>
+                </div>
+
+                <!-- 4 High-Tech Capability Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-3xl p-6 border border-gray-200 dark:border-gray-800 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-wave-square"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-primary">GE Logiq Sonography</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Thyroid Color Doppler & Elastography</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Real-time shear-wave elastography measuring nodule tissue firmness with ACR TI-RADS staging to accurately rule out cancer without surgery.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-gray-500 font-semibold">
+                            Same-Day Gentle In-Office FNA Available
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-3xl p-6 border border-gray-200 dark:border-gray-800 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-x-ray"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Hologic Horizon</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">DEXA Bone Density & Trabecular Score</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Dual-energy X-ray absorptiometry assessing lumbar spine and hip microarchitecture with FRAX 10-year fracture risk index and visceral fat %.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-purple-600 dark:text-purple-400 font-semibold">
+                            Ultra-Low Radiation &lt;1 Microsievert
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-3xl p-6 border border-gray-200 dark:border-gray-800 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-droplet"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">CLIA Certified</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Point-of-Care Rapid HbA1c Lab</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Capillary fingerstick analyzer delivering NGSP-certified glycated hemoglobin and microalbuminuria results in under 10 minutes.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                            Instant Same-Visit Physician Review
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-3xl p-6 border border-gray-200 dark:border-gray-800 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Sensory & Vascular</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Neuropathy & ABI Vascular Screen</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Quantitative biothesiometry vibration perception thresholds and Doppler Ankle-Brachial Index testing to catch silent diabetic nerve changes early.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-200 dark:border-gray-800 text-[11px] text-amber-600 dark:text-amber-400 font-semibold">
+                            Complete Diabetic Foot Preservation
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4 (NEW): DEVICE & WEARABLE TELEMETRY HUB ==================== -->
+        <section id="device-integration" class="py-20 bg-gray-50 dark:bg-darkCard/40 transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Wearable Digital Health
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Seamless Device & <span class="text-primary">Wearable Telemetry</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Whether you wear a Dexcom sensor, use an Omnipod pump, or track activity via Apple Health, our clinical telemetry suite connects directly to your devices for continuous, proactive medical guidance.
+                    </p>
+                </div>
+
+                <!-- 4 Wearable Integration Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    
+                    <!-- Device 1: CGMs -->
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-primary transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-lg">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-tower-broadcast"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-primary">Continuous Sensors</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Dexcom & Libre CGM Sync</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Direct integration with Dexcom G7, FreeStyle Libre 3, and Eversense E3. Subcutaneous sensors stream real-time glucose readings every 60 seconds with automated trend velocity alerts.
+                            </p>
+                            <div class="space-y-1.5 text-xs text-gray-700 dark:text-gray-300 mb-4">
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i> <span>Automated Ambulatory Glucose Profiles</span></div>
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-primary text-xs"></i> <span>Predictive Hypo Alerts to Clinic</span></div>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 dark:border-gray-800 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                            <i class="fas fa-chart-line mr-1"></i> 94% Time-in-Range Target Monitoring
+                        </div>
+                    </div>
+
+                    <!-- Device 2: AID Closed Loops -->
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-emerald-500 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-lg">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Closed-Loop Algorithms</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">AID Pump Ecosystem</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Compatibility with Tandem Control-IQ, Insulet Omnipod 5, and Medtronic MiniMed 780G. Smart algorithms self-modulate basal delivery every 5 minutes and deploy corrective micro-boluses.
+                            </p>
+                            <div class="space-y-1.5 text-xs text-gray-700 dark:text-gray-300 mb-4">
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> <span>Algorithm Calibration & Diagnostics</span></div>
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-emerald-500 text-xs"></i> <span>Tubeless & Tethered Setup Support</span></div>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 dark:border-gray-800 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                            <i class="fas fa-moon mr-1"></i> 68% Reduction in Nocturnal Lows
+                        </div>
+                    </div>
+
+                    <!-- Device 3: Smart Pens -->
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-purple-500 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-lg">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-pen-fancy"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Bluetooth Injections</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Connected Smart Pens</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Real-time dose capture with Medtronic InPen and NovoPen Echo Plus. Automatic memory timestamps, half-unit precision tracking, and active Insulin-on-Board (IOB) calculations.
+                            </p>
+                            <div class="space-y-1.5 text-xs text-gray-700 dark:text-gray-300 mb-4">
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-purple-500 text-xs"></i> <span>Prevents Dangerous Insulin Stacking</span></div>
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-purple-500 text-xs"></i> <span>Missed Meal Dose Reminder Alerts</span></div>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 dark:border-gray-800 text-[11px] font-semibold text-purple-600 dark:text-purple-400">
+                            <i class="fas fa-syringe mr-1"></i> Zero Manual Logging Required
+                        </div>
+                    </div>
+
+                    <!-- Device 4: Health Apps & Aggregators -->
+                    <div class="bg-white dark:bg-darkCard p-6 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-amber-500 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-lg">
+                        <div>
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-mobile-screen-button"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Unified Health Data</span>
+                            <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white my-2">Apple Health & Glooko Hub</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                Synchronize steps, heart rate variability, sleep stages, and carbohydrate intake from Apple HealthKit, Google Fit, Garmin, and Glooko to provide total clinical context for every glucose shift.
+                            </p>
+                            <div class="space-y-1.5 text-xs text-gray-700 dark:text-gray-300 mb-4">
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-amber-500 text-xs"></i> <span>Sleep & Stress Glycemic Correlation</span></div>
+                                <div class="flex items-center gap-2"><i class="fas fa-check text-amber-500 text-xs"></i> <span>Tidepool & Cloud Export Ready</span></div>
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 dark:border-gray-800 text-[11px] font-semibold text-amber-600 dark:text-amber-400">
+                            <i class="fas fa-heart-pulse mr-1"></i> Holistic Multi-Metric Analysis
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Trust Bar -->
+                <div class="bg-white dark:bg-darkCard rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm flex flex-wrap items-center justify-around gap-4 text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-lock text-primary text-base"></i>
+                        <span>HIPAA 256-Bit Encrypted Data Streams</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-cloud text-emerald-500 text-base"></i>
+                        <span>Automatic Zero-Entry Cloud Uploads</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-user-doctor text-purple-500 text-base"></i>
+                        <span>Bi-Weekly Physician Trend Analysis</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-headset text-amber-500 text-base"></i>
+                        <span>Certified Device Setup & Prior Authorizations</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 5: VERIFIED PATIENT SUCCESS JOURNEYS ==================== -->
+        <section id="patient-journeys" class="py-20 bg-white dark:bg-darkBg transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Transformative Real Stories
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Documented Patient <span class="text-primary">Transformations</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Read how continuous endocrine oversight, advanced device telemetry, and cellular hormone balancing restored vitality for our patients.
+                    </p>
+                </div>
+
+                <!-- 3 Case Study Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Story 1 -->
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-3xl p-8 border border-gray-200 dark:border-gray-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/40 px-3 py-1 rounded-full">
+                                    HbA1c: 10.2% &rarr; 5.7%
+                                </span>
+                                <span class="text-xs text-gray-400">Type 2 Diabetes</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">David M., Age 52</h3>
+                            <p class="text-xs text-primary font-semibold mb-4">Dual Incretin & CGM Telemetry Care Plan</p>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 italic">
+                                "Before EndoClinic, my blood sugar swung between 200 and 350 mg/dL every week. By reviewing my Dexcom data every two weeks, Dr. Chen calibrated my treatment with surgical accuracy. Today my HbA1c is 5.7% and I have zero neuropathic tingling."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">DM</div>
+                            <div>
+                                <span class="block text-xs font-bold text-gray-900 dark:text-white">David M.</span>
+                                <span class="text-[11px] text-gray-500">Patient for 2 Years &bull; Verified Registry</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story 2 -->
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-3xl p-8 border border-gray-200 dark:border-gray-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/40 px-3 py-1 rounded-full">
+                                    TSH: 6.8 &rarr; 1.4 mIU/L
+                                </span>
+                                <span class="text-xs text-gray-400">Hashimoto's Thyroid</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">Sarah K., Age 38</h3>
+                            <p class="text-xs text-purple-600 dark:text-purple-400 font-semibold mb-4">Hormone & Thyroid Mastery Plan</p>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 italic">
+                                "Every other clinic told me my fatigue was just stress because my basic TSH was 'borderline.' Dr. Vance performed a full thyroid ultrasound, tested my active Free T3, and identified severe Hashimoto's. Within 6 weeks of tailored therapy, my brain fog was completely gone."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-600 flex items-center justify-center font-bold text-sm">SK</div>
+                            <div>
+                                <span class="block text-xs font-bold text-gray-900 dark:text-white">Sarah K.</span>
+                                <span class="text-[11px] text-gray-500">Patient for 18 Months &bull; Verified Registry</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story 3 -->
+                    <div class="bg-gray-50 dark:bg-darkCard rounded-3xl p-8 border border-gray-200 dark:border-gray-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 bg-sky-100 dark:bg-sky-900/40 px-3 py-1 rounded-full">
+                                    TIR: 48% &rarr; 92%
+                                </span>
+                                <span class="text-xs text-gray-400">Type 1 Diabetes</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">Michael R., Age 28</h3>
+                            <p class="text-xs text-primary font-semibold mb-4">Automated Insulin Pump Protocol</p>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 italic">
+                                "I was terrified of waking up with severe nocturnal hypoglycemia. The EndoClinic team paired me with a Tandem Control-IQ closed-loop pump and Dexcom G7. The predictive algorithm stops lows before they can happen. I finally sleep peacefully through the night."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-sky-100 dark:bg-sky-900/40 text-primary flex items-center justify-center font-bold text-sm">MR</div>
+                            <div>
+                                <span class="block text-xs font-bold text-gray-900 dark:text-white">Michael R.</span>
+                                <span class="text-[11px] text-gray-500">Patient for 3 Years &bull; Verified Registry</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 6 (NEW): HEALTH CALCULATORS & RISK ASSESSMENT SUITE ==================== -->
+        <section id="health-calculators" class="py-20 bg-gray-50 dark:bg-darkCard/40 transition-colors duration-300">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm tracking-wide uppercase mb-3">
+                        Interactive Clinical Tools
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Self-Assessment & <span class="text-primary">Health Calculators</span>
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+                        Estimate your average daily blood sugar from your HbA1c, or assess your thyroid and metabolic symptom burden using our evidence-based clinical calculators.
+                    </p>
+                </div>
+
+                <!-- Two-Column Interactive Tool Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Tool 1: HbA1c to eAG Converter -->
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full">
+                                    Official ADAG Formula
+                                </span>
+                                <span class="text-xs text-gray-400">Clinical Converter</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">HbA1c &rarr; Average Glucose (eAG)</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 mb-6">
+                                The American Diabetes Association (ADAG) formula converts glycated hemoglobin into an Estimated Average Glucose (mg/dL) reading for home meters.
+                            </p>
+
+                            <!-- Slider & Input Controls -->
+                            <div class="mb-6 bg-gray-50 dark:bg-darkBg p-6 rounded-2xl border border-gray-200 dark:border-gray-800">
+                                <div class="flex justify-between items-center mb-3">
+                                    <label for="a1cRangeInput" class="text-sm font-bold text-gray-800 dark:text-gray-200">
+                                        Your HbA1c Percentage:
+                                    </label>
+                                    <div class="flex items-center gap-1">
+                                        <input type="number" id="a1cNumberInput" min="5.0" max="14.0" step="0.1" value="7.0" class="w-20 px-3 py-1 text-right font-bold text-lg rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-darkCard text-primary focus:outline-none focus:border-primary">
+                                        <span class="font-bold text-gray-700 dark:text-gray-300">%</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="a1cRangeInput" min="5.0" max="13.0" step="0.1" value="7.0" class="w-full accent-primary cursor-pointer mb-2">
+                                <div class="flex justify-between text-[11px] text-gray-400">
+                                    <span>5.0% (Optimal)</span>
+                                    <span>7.0% (ADA Target)</span>
+                                    <span>13.0% (High Risk)</span>
+                                </div>
+                            </div>
+
+                            <!-- Real-Time Output Card -->
+                            <div class="p-6 rounded-2xl bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-900/50 mb-6">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-xs text-sky-800 dark:text-sky-300 font-semibold block">Estimated Average Daily Glucose:</span>
+                                        <div class="flex items-baseline gap-2 mt-1">
+                                            <span id="eagResultValue" class="text-4xl font-extrabold text-primary">154</span>
+                                            <span class="text-sm font-semibold text-gray-600 dark:text-gray-300">mg/dL</span>
+                                        </div>
+                                    </div>
+                                    <span id="eagStatusBadge" class="text-xs font-bold px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                                        ADA Diabetic Target
+                                    </span>
+                                </div>
+                                <p id="eagAdviceText" class="text-xs text-gray-600 dark:text-gray-300 mt-3 border-t border-sky-200/60 dark:border-sky-800/40 pt-2">
+                                    An HbA1c of 7.0% corresponds to an average 24-hour glucose level of ~154 mg/dL. Our goal is maximizing Time-in-Range between 70 and 180 mg/dL.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-100 dark:border-gray-800">
+                            <a href="booking.html" class="block w-full py-3 text-center rounded-full font-bold bg-primary hover:bg-secondary text-white text-xs transition-colors shadow-md">
+                                Schedule Point-of-Care HbA1c Test
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tool 2: Thyroid & Metabolic Symptom Screener -->
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/40 px-3 py-1 rounded-full">
+                                    Symptom Checker
+                                </span>
+                                <span class="text-xs text-gray-400">Clinical Screener</span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-2">Thyroid & Hormone Screener</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 mb-6">
+                                Select any symptoms you currently experience to calculate your clinical endocrine symptom score:
+                            </p>
+
+                            <!-- Interactive Clickable Symptom Pills -->
+                            <div class="space-y-2 mb-6" id="thyroidSymptomList">
+                                <button type="button" class="symptom-btn w-full p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-darkBg text-left text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center justify-between transition-all">
+                                    <span><i class="fas fa-battery-quarter mr-2 text-primary"></i> Chronic Fatigue & Waking Up Tired</span>
+                                    <i class="far fa-circle text-gray-400 check-icon"></i>
+                                </button>
+                                <button type="button" class="symptom-btn w-full p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-darkBg text-left text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center justify-between transition-all">
+                                    <span><i class="fas fa-snowflake mr-2 text-sky-500"></i> Cold Intolerance / Cold Hands & Feet</span>
+                                    <i class="far fa-circle text-gray-400 check-icon"></i>
+                                </button>
+                                <button type="button" class="symptom-btn w-full p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-darkBg text-left text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center justify-between transition-all">
+                                    <span><i class="fas fa-weight-scale mr-2 text-emerald-500"></i> Unexplained Weight Gain or Inability to Lose</span>
+                                    <i class="far fa-circle text-gray-400 check-icon"></i>
+                                </button>
+                                <button type="button" class="symptom-btn w-full p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-darkBg text-left text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center justify-between transition-all">
+                                    <span><i class="fas fa-brain mr-2 text-purple-500"></i> Brain Fog, Memory Lapses & Poor Focus</span>
+                                    <i class="far fa-circle text-gray-400 check-icon"></i>
+                                </button>
+                                <button type="button" class="symptom-btn w-full p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-darkBg text-left text-xs font-semibold text-gray-700 dark:text-gray-300 flex items-center justify-between transition-all">
+                                    <span><i class="fas fa-spa mr-2 text-amber-500"></i> Thinning Hair, Brittle Nails & Dry Skin</span>
+                                    <i class="far fa-circle text-gray-400 check-icon"></i>
+                                </button>
+                            </div>
+
+                            <!-- Dynamic Symptom Output Box -->
+                            <div class="p-5 rounded-2xl bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/50 mb-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold text-purple-900 dark:text-purple-300">Identified Symptoms:</span>
+                                    <span id="symptomScoreBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-purple-200 text-purple-900 dark:bg-purple-800 dark:text-purple-100">
+                                        0 of 5 Selected
+                                    </span>
+                                </div>
+                                <p id="symptomRecommendation" class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    Click any symptoms above to calculate your personal endocrine symptom burden score.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-100 dark:border-gray-800">
+                            <a href="booking.html" class="block w-full py-3 text-center rounded-full font-bold bg-purple-600 hover:bg-purple-700 text-white text-xs transition-colors shadow-md">
+                                Request Comprehensive Hormone Evaluation
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 7: FAST-TRACK APPOINTMENT & CONSULTATION GATEWAY ==================== -->
+        <section id="fast-track-gateway" class="py-20 bg-gradient-to-br from-primary via-secondary to-darkBg text-white relative overflow-hidden">
+            <!-- Subtle Radial Gradient Backgrounds -->
+            <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-24 -top-24 w-96 h-96 bg-primary/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Column -->
+                    <div class="lg:col-span-7 text-center lg:text-left rtl:lg:text-right">
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-white/20 text-white font-semibold text-xs tracking-wider uppercase mb-4 backdrop-blur-sm">
+                            Fast-Track Specialist Access
+                        </span>
+                        <h2 class="font-serif text-3xl md:text-5xl font-bold leading-tight mb-5">
+                            Ready to Transform Your Metabolic Health?
+                        </h2>
+                        <p class="text-sky-100 text-base md:text-lg leading-relaxed max-w-2xl mb-8">
+                            Select your condition below to pre-fill your consultation intake and claim one of our guaranteed same-week specialist slots.
+                        </p>
+
+                        <!-- Interactive Category Selection Pills -->
+                        <div class="flex flex-wrap gap-2.5 mb-8 justify-center lg:justify-start" id="fastTrackOptions">
+                            <button type="button" class="ft-btn active px-4 py-2 rounded-full text-xs font-bold bg-white text-primary shadow-md transition-all">
+                                Diabetes & CGM Telemetry
+                            </button>
+                            <button type="button" class="ft-btn px-4 py-2 rounded-full text-xs font-bold bg-white/20 text-white hover:bg-white/30 transition-all">
+                                Thyroid Ultrasound & FNA
+                            </button>
+                            <button type="button" class="ft-btn px-4 py-2 rounded-full text-xs font-bold bg-white/20 text-white hover:bg-white/30 transition-all">
+                                Metabolic Weight & GLP-1
+                            </button>
+                            <button type="button" class="ft-btn px-4 py-2 rounded-full text-xs font-bold bg-white/20 text-white hover:bg-white/30 transition-all">
+                                PCOS & Hormone Balance
+                            </button>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                            <a href="booking.html" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold bg-white text-primary hover:bg-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 text-center flex items-center justify-center gap-3 text-base">
+                                <i class="fas fa-calendar-check text-xl"></i>
+                                <span>Reserve Fast-Track Slot</span>
+                            </a>
+                            <a href="tel:+15553636254" class="w-full sm:w-auto px-8 py-4 rounded-full font-bold border-2 border-white/80 text-white hover:bg-white/10 transition-all duration-300 text-center flex items-center justify-center gap-3 text-base">
+                                <i class="fas fa-phone-alt text-xl"  style="transform: rotate(90deg);"
+></i>
+                                <span >+1 (555) 363-6254</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Quick Info Card -->
+                    <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 text-white shadow-2xl">
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/15">
+                            <h4 class="font-serif text-xl font-bold flex items-center gap-2">
+                                <i class="fas fa-clock text-accent"></i> Specialist Availability
+                            </h4>
+                            <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-400 text-gray-900 font-bold">Live Updates</span>
+                        </div>
+                        
+                        <div class="space-y-3.5 text-xs md:text-sm text-sky-100 mb-6">
+                            <div class="flex justify-between items-center pb-2 border-b border-white/10">
+                                <span>Next New Patient Slot:</span>
+                                <strong class="text-white">This Thursday, 10:30 AM</strong>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 border-b border-white/10">
+                                <span>Urgent Triage Referrals:</span>
+                                <strong class="text-accent">Same-Week Guaranteed</strong>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 border-b border-white/10">
+                                <span>Accepted Coverage:</span>
+                                <strong class="text-white">Medicare & Major PPOs</strong>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>HSA & FSA Eligibility:</span>
+                                <strong class="text-emerald-300">100% Qualified</strong>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/10 p-4 rounded-2xl border border-white/15 text-xs text-sky-100 flex items-start gap-2.5">
+                            <i class="fas fa-shield-halved text-accent mt-0.5"></i>
+                            <span>No waiting in referral queues. Our in-house patient navigators verify insurance benefits and schedule diagnostic tests in one call.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-white dark:bg-darkCard border-t border-gray-100 dark:border-gray-800 pt-16 pb-8 mt-auto transition-colors duration-300">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+            <!-- Top Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Brand Column -->
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <i class="fas fa-heartbeat text-3xl text-primary bg-clip-text bg-gradient-to-br from-primary to-secondary"></i>
+                        <span class="font-serif text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-tight">EndoClinic</span>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Dedicated to improving metabolic health and enhancing patient wellness through specialized, compassionate endocrine care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">QuickLinks</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="index.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">About</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Service</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">Specialties</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Diabetes Management</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Thyroid Care</a></li>
+                        <li><a href="service.html" class="hover:text-primary transition-colors hover:translate-x-1 inline-block duration-300 rtl:hover:-translate-x-1">Metabolic Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social & Contact -->
+                <div>
+                    <h3 class="text-primary font-bold text-lg mb-6 uppercase tracking-widest border-b-2 border-primary pb-3 inline-block">Connect</h3>
+                    <ul class="flex flex-col gap-4 text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-facebook-f w-5 text-center"></i> Facebook</a></li>
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-instagram w-5 text-center"></i> Instagram</a></li>
+                        <li><a href="#" class="flex items-center gap-3 hover:text-primary transition-colors hover:translate-x-1 duration-300 rtl:hover:-translate-x-1"><i class="fab fa-x-twitter w-5 text-center"></i> X</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Middle & Bottom Footer -->
+            <div class="border-y border-gray-200 dark:border-gray-800 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <h3 class="text-primary font-bold text-xl font-serif">Endocrinology & Diabetes Care</h3>
+                <div class="flex gap-8 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Terms & Conditions</a>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-gray-500 dark:text-gray-500 text-sm">
+                &copy; 2026 Endocrinology & Diabetes Care Clinic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Mobile Menu Logic
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            const overlay = document.getElementById('mobileOverlay');
+
+            function toggleMenu() {
+                const isRtl = document.documentElement.dir === 'rtl';
+                if (isRtl) {
+                    mobileMenu.classList.toggle('rtl:-left-full');
+                    mobileMenu.classList.toggle('rtl:left-0');
+                } else {
+                    mobileMenu.classList.toggle('-right-full');
+                    mobileMenu.classList.toggle('right-0');
+                }
+                overlay.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+                
+                const icon = hamburger.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            // 2. Theme Toggle (Dark/Light)
+            const themeToggle = document.getElementById('themeToggle');
+            const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+
+            function toggleTheme() {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+
+            // 3. RTL (Right-to-Left) Toggle
+            const rtlToggle = document.getElementById('rtlToggle');
+            const mobileRtlToggle = document.getElementById('mobileRtlToggle');
+
+            function toggleRTL() {
+                const html = document.documentElement;
+                html.dir = html.dir === 'rtl' ? 'ltr' : 'rtl';
+                localStorage.setItem('direction', html.dir);
+            }
+
+            rtlToggle.addEventListener('click', toggleRTL);
+            mobileRtlToggle.addEventListener('click', toggleRTL);
+            if (localStorage.getItem('direction') === 'rtl') {
+                document.documentElement.dir = 'rtl';
+            }
+
+            // 4. Active Link Highlight
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a, #mobileNavMenu a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    if (link.classList.contains('px-4') && link.classList.contains('py-2')) {
+                        link.classList.add('text-primary', 'bg-primary/10', 'dark:bg-primary/20');
+                    }
+                    else if (link.classList.contains('px-5') && link.classList.contains('py-2') && !link.classList.contains('border-2')) {
+                        link.classList.add('bg-primary', 'text-white');
+                    }
+                    else if (link.classList.contains('px-5') && link.classList.contains('py-3') && link.classList.contains('border-2')) {
+                        link.classList.remove('bg-white', 'dark:bg-darkBg', 'border-gray-200', 'dark:border-gray-700');
+                        link.classList.add('bg-primary', 'text-white', 'border-primary');
+                    }
+                }
+            });
+
+            // 5. Fast-Track Selector Interaction
+            const ftBtns = document.querySelectorAll('#fastTrackOptions .ft-btn');
+            ftBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    ftBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-white', 'text-primary', 'shadow-md');
+                        b.classList.add('bg-white/20', 'text-white');
+                    });
+                    btn.classList.add('active', 'bg-white', 'text-primary', 'shadow-md');
+                    btn.classList.remove('bg-white/20', 'text-white');
+                });
+            });
+
+            // 6. Interactive HbA1c to eAG Converter
+            const a1cRange = document.getElementById('a1cRangeInput');
+            const a1cNumber = document.getElementById('a1cNumberInput');
+            const eagResult = document.getElementById('eagResultValue');
+            const eagBadge = document.getElementById('eagStatusBadge');
+            const eagAdvice = document.getElementById('eagAdviceText');
+
+            function calculateEAG(val) {
+                const a1c = parseFloat(val);
+                if (isNaN(a1c)) return;
+
+                // Formula: eAG = 28.7 * A1c - 46.7
+                const eag = Math.round(28.7 * a1c - 46.7);
+                if (eagResult) eagResult.textContent = eag;
+
+                if (a1c < 5.7) {
+                    eagBadge.textContent = "Optimal Non-Diabetic";
+                    eagBadge.className = "text-xs font-bold px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300";
+                    eagAdvice.textContent = `An HbA1c of ${a1c.toFixed(1)}% indicates healthy insulin sensitivity and fasting glucose under 100 mg/dL.`;
+                } else if (a1c >= 5.7 && a1c <= 6.4) {
+                    eagBadge.textContent = "Pre-Diabetes Range";
+                    eagBadge.className = "text-xs font-bold px-3 py-1.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300";
+                    eagAdvice.textContent = `An HbA1c of ${a1c.toFixed(1)}% indicates elevated insulin resistance. Lifestyle modifications can reverse this without long-term medication.`;
+                } else if (a1c >= 6.5 && a1c <= 7.0) {
+                    eagBadge.textContent = "ADA Diabetic Target";
+                    eagBadge.className = "text-xs font-bold px-3 py-1.5 rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300";
+                    eagAdvice.textContent = `An HbA1c of ${a1c.toFixed(1)}% satisfies the American Diabetes Association primary target for microvascular protection.`;
+                } else {
+                    eagBadge.textContent = "Action Recommended";
+                    eagBadge.className = "text-xs font-bold px-3 py-1.5 rounded-full bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300";
+                    eagAdvice.textContent = `An HbA1c of ${a1c.toFixed(1)}% (avg ~${eag} mg/dL) indicates risk of diabetic microvascular complications. Telemetry titration is advised.`;
+                }
+            }
+
+            if (a1cRange && a1cNumber) {
+                a1cRange.addEventListener('input', (e) => {
+                    a1cNumber.value = parseFloat(e.target.value).toFixed(1);
+                    calculateEAG(e.target.value);
+                });
+
+                a1cNumber.addEventListener('input', (e) => {
+                    let val = parseFloat(e.target.value);
+                    if (val >= 5.0 && val <= 14.0) {
+                        a1cRange.value = val;
+                        calculateEAG(val);
+                    }
+                });
+            }
+
+            // 7. Interactive Thyroid Symptom Screener
+            const symptomBtns = document.querySelectorAll('.symptom-btn');
+            const symptomBadge = document.getElementById('symptomScoreBadge');
+            const symptomAdvice = document.getElementById('symptomRecommendation');
+
+            symptomBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const icon = btn.querySelector('.check-icon');
+                    btn.classList.toggle('active-symptom');
+
+                    if (btn.classList.contains('active-symptom')) {
+                        btn.classList.remove('border-gray-200', 'dark:border-gray-700', 'bg-gray-50', 'dark:bg-darkBg');
+                        btn.classList.add('border-purple-500', 'bg-purple-50', 'dark:bg-purple-950/40', 'text-purple-700', 'dark:text-purple-300');
+                        icon.classList.replace('far', 'fas');
+                        icon.classList.replace('fa-circle', 'fa-check-circle');
+                        icon.classList.replace('text-gray-400', 'text-purple-600');
+                    } else {
+                        btn.classList.add('border-gray-200', 'dark:border-gray-700', 'bg-gray-50', 'dark:bg-darkBg');
+                        btn.classList.remove('border-purple-500', 'bg-purple-50', 'dark:bg-purple-950/40', 'text-purple-700', 'dark:text-purple-300');
+                        icon.classList.replace('fas', 'far');
+                        icon.classList.replace('fa-check-circle', 'fa-circle');
+                        icon.classList.replace('text-purple-600', 'text-gray-400');
+                    }
+
+                    const activeCount = document.querySelectorAll('.symptom-btn.active-symptom').length;
+                    if (symptomBadge && symptomAdvice) {
+                        symptomBadge.textContent = `${activeCount} of 5 Selected`;
+
+                        if (activeCount === 0) {
+                            symptomAdvice.textContent = "Click any symptoms above to calculate your personal endocrine symptom burden score.";
+                        } else if (activeCount <= 2) {
+                            symptomAdvice.textContent = "Mild symptom burden. Consider having a routine annual TSH and basic metabolic panel performed.";
+                        } else if (activeCount <= 4) {
+                            symptomAdvice.textContent = "Moderate to high symptom correlation. Your profile warrants a comprehensive functional thyroid panel including Free T3, Free T4, and Anti-TPO antibodies.";
+                        } else {
+                            symptomAdvice.textContent = "Significant symptom cluster. We strongly recommend an in-office thyroid ultrasound and complete hormonal workup with our endocrinology team.";
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
