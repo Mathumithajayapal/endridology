@@ -60,21 +60,21 @@
 <body class="font-sans text-gray-800 bg-slate-50 dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8 relative overflow-x-hidden">
 
     <!-- Fixed Top-Right Corner Controls: Theme & RTL & Back to Home -->
-    <div class="fixed top-6 right-6 z-50 flex items-center gap-2 rtl:right-auto rtl:left-6">
+    <div class="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-1.5 sm:gap-2 rtl:right-auto rtl:left-4 sm:rtl:left-6">
         <!-- Back to Home Button -->
-        <a href="index.html" class="h-10 px-4 rounded-full flex items-center gap-2 bg-white dark:bg-darkCard shadow-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:border-primary transition-all text-xs font-semibold" title="Back to Home">
+        <a href="index.html" class="h-9 px-3 sm:h-10 sm:px-4 rounded-full flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs bg-white dark:bg-darkCard shadow-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:border-primary transition-all text-xs font-semibold" title="Back to Home">
             <i class="fas fa-arrow-left text-xs rtl:rotate-180"></i>
             <span>Home</span>
         </a>
 
         <!-- Dark/Light Mode Toggle -->
-        <button id="themeToggle" class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-darkCard shadow-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:border-primary transition-all" title="Toggle Theme" aria-label="Toggle Theme">
+        <button id="themeToggle" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm bg-white dark:bg-darkCard shadow-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:border-primary transition-all" title="Toggle Theme" aria-label="Toggle Theme">
             <i class="fas fa-moon dark:hidden"></i>
             <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
         </button>
 
         <!-- RTL Toggle -->
-        <button id="rtlToggle" class="px-3.5 h-10 rounded-full flex items-center justify-center bg-white dark:bg-darkCard shadow-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:border-primary transition-all font-bold text-xs" title="Toggle RTL" aria-label="Toggle RTL">
+        <button id="rtlToggle" class="px-3 h-9 sm:px-3.5 sm:h-10 rounded-full flex items-center justify-center text-[11px] sm:text-xs bg-white dark:bg-darkCard shadow-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary hover:border-primary transition-all font-bold text-xs" title="Toggle RTL" aria-label="Toggle RTL">
             RTL
         </button>
     </div>
@@ -84,10 +84,10 @@
     <div class="fixed bottom-1/4 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
 
     <!-- ==================== MAIN SIGNUP CARD ==================== -->
-    <div class="w-full max-w-4xl bg-white dark:bg-darkCard shadow-2xl rounded-3xl shrink-0 flex flex-col md:flex-row overflow-hidden border border-gray-100 dark:border-gray-800 animate-fade-in z-10 relative my-auto">
+    <div class="w-full max-w-md md:max-w-4xl bg-white dark:bg-darkCard shadow-2xl rounded-3xl shrink-0 flex flex-col md:flex-row overflow-hidden border border-gray-100 dark:border-gray-800 animate-fade-in z-10 relative my-auto">
         
         <!-- Left Side on Desktop (Branding & Overview) -->
-        <div class="w-full md:w-5/12 bg-gradient-to-br from-primary to-secondary p-8 md:p-10 text-white flex flex-col justify-between relative overflow-hidden">
+        <div class="hidden md:flex md:w-5/12 bg-gradient-to-br from-primary to-secondary p-8 md:p-10 text-white flex-col justify-between relative overflow-hidden">
             <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-accent/20 rounded-full blur-2xl pointer-events-none"></div>
             
@@ -129,13 +129,27 @@
         </div>
 
         <!-- Right Side on Desktop (Registration Form) -->
-        <div class="w-full md:w-7/12 p-8 md:p-10">
-            <div class="mb-6">
+        <div class="w-full md:w-7/12 p-5 sm:p-8 md:p-10">
+            <!-- Brand Logo Inside Form Card (Responsive Mobile) -->
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-100 dark:border-gray-800 md:hidden">
+                <a href="index.html" class="flex items-center gap-2.5 text-decoration-none">
+                    <i class="fas fa-heartbeat text-2xl text-primary"></i>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-tight leading-none">EndoClinic</span>
+                        <span class="text-[9px] uppercase tracking-wider text-brand-muted font-medium mt-0.5">Endocrinology &amp; Diabetes</span>
+                    </div>
+                </a>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary dark:bg-primary/20">
+                    Register
+                </span>
+            </div>
+
+            <div class="mb-5 sm:mb-6">
                 <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary dark:bg-primary/20 mb-2">
                     Patient Registration
                 </span>
-                <h2 class="text-2xl font-bold text-brand-dark dark:text-gray-100 mb-1">Create Your Account</h2>
-                <p class="text-sm text-brand-muted">Fill in your information to set up your personal health dashboard.</p>
+                <h2 class="text-xl sm:text-2xl font-bold text-brand-dark dark:text-gray-100 mb-1">Create Your Account</h2>
+                <p class="text-xs sm:text-sm text-brand-muted">Fill in your information to set up your personal health dashboard.</p>
             </div>
 
             <!-- Form -->
@@ -220,6 +234,14 @@
                     <button type="button" title="Sign up with Apple ID" onclick="handleSocial('Apple ID')" class="flex items-center justify-center w-11 h-11 bg-slate-50 dark:bg-darkBg border border-gray-200 dark:border-gray-800 hover:border-primary dark:hover:border-primary hover:scale-105 transition-all rounded-xl text-brand-dark dark:text-gray-200">
                         <i class="fab fa-apple text-lg"></i>
                     </button>
+                </div>
+
+                <!-- Mobile Switch to Login (Inside Form Card) -->
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 text-center md:hidden">
+                    <p class="text-xs text-brand-muted">
+                        Already have an account? 
+                        <a href="login.html" class="text-primary font-bold hover:underline ms-1">Sign In to Portal</a>
+                    </p>
                 </div>
 
             </form>
